@@ -44,6 +44,7 @@ Tên nhãn trong CVAT phải trùng `taxonomy.json`.
 
 ## Gỡ rối
 
+- Lỗi `unknown label type "undefined"`: bản nhãn thiếu `"type": "rectangle"` ở từng lớp, kể cả `ignore_region`. Lấy lại toàn bộ file JSON đã cập nhật trên `main`; sửa script và sinh lại file thay vì chỉ vá một lớp trong CVAT.
 - Lỗi `Attribute: "can_review": attribute values must be a non-empty array`: cập nhật repo và chạy lại `python scripts/make_cvat_labels.py`, rồi dán toàn bộ `cvat/labels_generated.json` vào Labels → Raw. Checkbox có mặc định `false` cần `"values": ["false"]` trong JSON CVAT. Không sửa `values: []` trong taxonomy: đó là schema nội bộ, script thực hiện chuyển đổi khi xuất.
 - Thiếu thuộc tính trong JSON: kiểm cấu hình Project, lưu lại box rồi export lại.
 - Tên file có tiền tố thư mục: bình thường, script bỏ tiền tố.

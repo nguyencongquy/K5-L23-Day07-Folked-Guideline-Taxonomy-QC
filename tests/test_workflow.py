@@ -106,6 +106,7 @@ class WorkflowTest(unittest.TestCase):
                     labels = json.loads((self.root / "cvat" / filename).read_text())
                     self.assertEqual({label["name"] for label in labels}, {item["name"] for item in taxonomy["classes"]})
                     for label in labels:
+                        self.assertEqual(label["type"], "rectangle")
                         if label["name"] == taxonomy["ignore_class"]:
                             self.assertEqual(label["attributes"], [])
                             continue
