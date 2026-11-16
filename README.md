@@ -1,5 +1,7 @@
 # Day 07 Lab — Guideline, Taxonomy & QC
 
+**Nhóm 3 thành viên:** [Tên, mã học viên và việc cần làm](TEAM.md) · [Danh sách ảnh từng người](submission/qc/assignments/) · [Bảng chia chung](submission/qc/assignment.csv)
+
 **Nhóm 2–5 người · 4 giờ · 40 ảnh đường phố · gán box bằng CVAT**
 
 Bạn nhận một guideline **sơ sài** và 40 ảnh chứa nhiều tình huống mà nó không nói tới.

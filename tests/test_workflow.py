@@ -94,6 +94,22 @@ class WorkflowTest(unittest.TestCase):
             rows = [rows[1], *errors]
         self.write_csv(review, ["image", "object_id", "error_type", "reviewer", "rule_id", "region", "note"], rows)
 
+    def test_name_mshv_assignment_supports_coco_comparison(self):
+        members = ["MemberOne_2A202600001", "MemberTwo_2A202600002", "MemberThree_2A202600003"]
+        self.run_script("split_assign", "--members", ",".join(members), "--copy-images")
+        with (self.qc / "assignment.csv").open(encoding="utf-8") as stream:
+            rows = list(csv.DictReader(stream))
+        self.assertEqual({row["image"] for row in rows}, set(self.names))
+        self.assertTrue(all(row["n_annotators"] == "2" for row in rows))
+        for member in members:
+            assigned = (self.qc / "assignments" / f"{member}.txt").read_text().splitlines()
+            self.assertEqual(set(assigned), {row["image"] for row in rows if member in row["annotators"].split("|")})
+            self.coco(self.sub / "labels" / f"{member}.json", names=assigned)
+        self.run_script("validate_labels", "--all")
+        self.run_script("qc_compare")
+        self.assertTrue((self.qc / "iaa_summary.json").exists())
+        self.run_script("split_assign", "--members", "../Member_2A202600001,102", success=False)
+
     def test_compare_rejects_missing_assigned_image_and_annotator(self):
         self.assignments("101|102|103")
         for member in ("101", "102"):

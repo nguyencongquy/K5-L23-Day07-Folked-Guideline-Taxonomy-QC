@@ -20,7 +20,8 @@ FINAL_TAXONOMY_PATH = ROOT / "submission" / "taxonomy_v1.1.json"
 GUIDELINE_PATH = ROOT / "submission" / "guidelines" / "guideline_v1.0_agreed.md"
 FINAL_GUIDELINE_PATH = ROOT / "submission" / "guidelines" / "guideline_v1.1_calibrated.md"
 ASSIGNMENT_PATH = ROOT / "submission" / "qc" / "assignment.csv"
-MEMBER_RE = re.compile(r"\d{3}", re.ASCII)
+# Team customization: retain starter IDs and accept the requested Name_MSHV format.
+MEMBER_RE = re.compile(r"(?:[0-9]{3}|[A-Za-z][A-Za-z0-9]*_[0-9][A-Z][0-9]{9})", re.ASCII)
 LABELS_DIR = ROOT / "submission" / "labels"
 QC_DIR = ROOT / "submission" / "qc"
 IMAGES_DIR = ROOT / "data" / "images"
@@ -242,11 +243,11 @@ def load_all_labels(tax: Taxonomy) -> Dict[str, LabelFile]:
     files = list_label_files()
     if not files:
         die("Chưa có file nhãn nào trong submission/labels/. Mỗi thành viên export COCO 1.0 từ CVAT, "
-            "đặt tên theo mã, ví dụ 101.json.")
+            "đặt tên theo mã hoặc Ten_MSHV, ví dụ NguyenCongQuy_2A202603149.json.")
     out: Dict[str, LabelFile] = {}
     for p in files:
         if not MEMBER_RE.fullmatch(p.stem):
-            die(f"{p.name}: đặt tên theo mã ba chữ số, ví dụ 101.json.")
+            die(f"{p.name}: đặt tên theo mã ba chữ số hoặc Ten_MSHV, ví dụ NguyenCongQuy_2A202603149.json.")
         try:
             lf = load_coco(p, tax)
         except Exception as e:  # noqa
