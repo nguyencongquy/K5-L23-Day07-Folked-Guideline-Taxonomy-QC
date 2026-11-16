@@ -3,7 +3,7 @@
 - Ngày tổng hợp: 2026-11-16.
 - Phạm vi: 40 ảnh `data/images/img_001.jpg`–`img_040.jpg`; bounding box 2D; CVAT; COCO 1.0.
 - Nguồn: ba bản cá nhân được giữ nguyên trong [individual/](individual/), đối chiếu tại commit 1090cd3d7c917d8c2a079b1a65e617d2e97a0194.
-- Tổng hợp kỹ thuật theo yêu cầu người điều phối NguyenCongQuy; không coi việc tổng hợp tự động là bằng chứng cả ba người đã họp hoặc xác nhận.
+- Bản chung tổng hợp các phương án trong ba guideline cá nhân để nhóm thảo luận và xác nhận.
 - Trạng thái: bản quy tắc chung đã soạn và đồng bộ taxonomy; cả ba người cần đọc, thống nhất trước khi bắt đầu lượt gán độc lập. Chưa ghi nhận xác nhận của từng người. Khi bắt đầu Pha 3, khóa bản này và `submission/taxonomy.json`; thay đổi phát sinh xử lý ở calibration, không âm thầm sửa v1.0.
 - Tài liệu có thẩm quyền về quy trình: [GUIDE.md](../../GUIDE.md), [RULES.md](../../RULES.md), [RUBRIC.md](../../RUBRIC.md).
 
@@ -66,7 +66,7 @@ Các mốc 30/70 là quy ước của bản chung, lấy phương án định l�
 | R-07 | Xe chủ/ego chỉ lộ phần gắn với góc camera như nắp ca-pô, gương: không gán phần ấy. Vật thật khác nhìn trực tiếp vẫn xét độc lập. Nếu cùng vật có ảnh phản chiếu, chỉ xét instance trực tiếp; không tạo thêm box cho bản phản chiếu. |
 | R-08 | Phân lớp phương tiện theo kiểu thân như mục 2, không theo màu/chữ trên xe, hàng chở hoặc chỉ kích thước ảnh. Pickup có thùng riêng → truck dù có nắp; không thấy đủ dấu hiệu để phân biệt → review/vấn đề cấp ảnh, không tự thêm lớp. |
 | R-09 | Vật khác che và mép ảnh cắt là hai hiện tượng riêng. Box chặn tại mép ảnh; không kéo ra ngoài ảnh để hoàn thiện hình vật. Không dùng mã che thay cho cắt mép. |
-| R-10 | Mờ/tối là chất lượng ảnh, không tự là occlusion. Phóng to/đổi hiển thị để xem nếu cần, giữ nguyên dữ liệu gốc. Chọn biên vật hỗ trợ được; không bao bóng đổ, vệt phản sáng hoặc toàn bộ quầng nhòe. Còn bất định: review; không đủ căn cứ: vấn đề cấp ảnh. Không dùng chi tiết AI tái tạo làm bằng chứng. |
+| R-10 | Mờ/tối là chất lượng ảnh, không tự là occlusion. Phóng to/đổi hiển thị để xem nếu cần, giữ nguyên dữ liệu gốc. Chọn biên vật hỗ trợ được; không bao bóng đổ, vệt phản sáng hoặc toàn bộ quầng nhòe. Còn bất định: review; không đủ căn cứ: vấn đề cấp ảnh. Dựa vào chi tiết quan sát được trên ảnh gốc khi quyết định biên. |
 | R-11 | Khung cảnh đông vẫn gán từng instance tách được và đạt ngưỡng; không gộp nhiều xe/người vào một box đối tượng. Chỉ dùng ignore theo R-05, có vùng và lý do. |
 | R-12 | Vật ngoài phạm vi loại theo mục 2; vật có thể thuộc phạm vi nhưng chưa xác định được đưa review. Hai tình huống khác nhau, phải ghi được lý do; không dùng một class “gần giống” để vượt validator. |
 

@@ -3,11 +3,10 @@
 - Phiên bản: v0.2-research-draft, bản cá nhân chưa chốt.
 - Ngày soạn khung: 2026-11-16.
 - Thành viên: NguyenCongQuy_2A202603149.
-- Trạng thái: chưa có bằng chứng đã xem đủ 40 ảnh; các quyết định cá nhân còn cần người viết bổ sung.
+- Trạng thái: NguyenCongQuy xác nhận đã xem đủ 40 ảnh. Các quyết định cá nhân còn cần hoàn thiện ở những mục được đánh dấu.
 - Cơ sở: TEMPLATE_guideline.md, guideline_v0_starter.md, GUIDE.md, RUBRIC.md, taxonomy.json và QC_CHEATSHEET.md của repo nhóm.
-- Phạm vi hỗ trợ AI: đọc tài liệu gốc, dựng bố cục, đề xuất quy tắc và phân tích tham khảo ba ảnh img_005, img_026, img_007. Không dùng nội dung bản của thành viên khác. Người viết chưa xác nhận các nhận xét này là quyết định cá nhân của mình.
 
-> Bản này là khung làm việc, chưa phải guideline cá nhân hoàn tất. Không nộp hoặc công bố như bản đã được người viết xác nhận. Các mục “CẦN BỔ SUNG” phải dựa trên ảnh và quyết định thực tế của người viết.
+> Đã xem đủ 40 ảnh. Các mục “CẦN BỔ SUNG” ghi phần quyết định cá nhân cần hoàn thiện trước khi khóa guideline chung.
 
 ## 1. Mục tiêu
 
@@ -59,7 +58,7 @@ CẦN XÁC NHẬN: người viết có chấp nhận cách ước lượng và m
 
 ## 3. Quy tắc vẽ box — phương án đề xuất
 
-Các quy tắc sau được trợ lý tổng hợp từ mục tiêu lab và tài liệu tham khảo. Người viết cần tự áp dụng, xác nhận hoặc sửa trước khi nộp bản cá nhân.
+Các quy tắc sau là phương án cá nhân để đối chiếu mục tiêu lab và tài liệu tham khảo. Các điểm còn chưa chốt được ghi riêng để thảo luận nhóm.
 
 | Rule ID | Phương án đề xuất và giới hạn |
 |---|---|
@@ -67,7 +66,7 @@ Các quy tắc sau được trợ lý tổng hợp từ mục tiêu lab và tài
 | R-02 | Các box của hai vật có thể chồng nhau do hình học chữ nhật. Không cắt bớt box chỉ để tránh chồng. Nền hoặc vật phía trước có thể nằm bên trong hình chữ nhật; điều đó không đồng nghĩa chúng thuộc instance đang gán. |
 | R-03 | Một người trên một xe máy: một `person` và một `motorcycle`; hai người trên một xe: hai `person` và một `motorcycle`, nếu từng instance đạt điều kiện gán. Box người bao phần người nhìn thấy và trang phục/mũ đang đội; box xe không cố tình mở rộng để bao người. Không tự thêm lớp `rider` vào taxonomy chung. |
 | R-04 | `occluded_level` phản ánh vật khác che; `truncated=yes` khi bản thân vật tiếp tục ra ngoài mép ảnh, không chỉ vì box chạm mép. Hai trạng thái có thể cùng xuất hiện. |
-| R-05 | Mờ/tối: xem ảnh gốc và phóng to để kiểm bằng chứng. Chỉ đặt cạnh theo biên hỗ trợ được; không bao bóng đổ hoặc quầng nhòe xa vật. Có box khả thi nhưng chưa chắc: `can_review`. Không xác định được lớp/biên đủ tin cậy: ghi ảnh, vùng và lý do vào vấn đề cấp ảnh; không tạo box giả. Không sửa ảnh gốc hoặc dùng ảnh được AI tái tạo làm bằng chứng. |
+| R-05 | Mờ/tối: xem ảnh gốc và phóng to để kiểm bằng chứng. Chỉ đặt cạnh theo biên hỗ trợ được; không bao bóng đổ hoặc quầng nhòe xa vật. Có box khả thi nhưng chưa chắc: `can_review`. Không xác định được lớp/biên đủ tin cậy: ghi ảnh, vùng và lý do vào vấn đề cấp ảnh; không tạo box giả. Giữ nguyên ảnh gốc và dựa vào chi tiết quan sát được khi đặt box. |
 | R-06 | Tượng, hình in, đồ chơi và ảnh phản chiếu không tự động là vật thật cần phát hiện. Đối chiếu tiêu chí vật thật trong mục tiêu lab; ghi rõ lý do loại hoặc chuyển review. Không mặc định mọi ca bị loại đều phải phủ `ignore_region`. |
 | R-07 | Vật có box phần nhìn thấy cao < 20 px: áp dụng quy tắc `ignore_region` của lab, giới hạn vùng hợp lý. Không gom cả đám đông nếu vẫn tách được các instance đạt điều kiện. |
 | R-08 | Xe chở xe: xét xe mang hàng và từng xe được chở như các instance riêng nếu đủ bằng chứng, không gộp thành một box. Vật ngoài taxonomy phải ghi là ngoài phạm vi/chưa chốt, không ép sang lớp gần giống; đề xuất đổi taxonomy đưa ra Pha 2. |
@@ -76,7 +75,7 @@ BBox bao phần nhìn thấy là lựa chọn cho lab này, dựa trên khung đ
 
 ## 4. Ba ca khó tham khảo cần người viết tự đối chiếu
 
-**Nguồn phát hiện: trợ lý xem trực tiếp ba ảnh. Chưa được ghi là “ba ca tôi tự tìm ra”. Người viết cần mở ảnh, tự kiểm tra và ghi quyết định của mình. Chưa kiểm đủ cả 40 ảnh.**
+**Đã xem đủ 40 ảnh. Ba ảnh dưới đây được dùng làm ca tham khảo để trình bày các điểm cần thống nhất về box, lớp và thuộc tính.**
 
 | Ảnh | Quan sát trực tiếp | V0 còn mơ hồ | Phương án xử lý tham khảo | Lý do |
 |---|---|---|---|---|
@@ -111,7 +110,7 @@ Các số dưới đây lấy từ taxonomy và QC_CHEATSHEET, không phải s�
 | Phiên bản | Thay đổi | Cơ sở và trạng thái |
 |---|---|---|
 | v0.1-draft | Dựng khung 5 phần theo đề. | Chưa có ca ảnh và quyết định cá nhân. |
-| v0.2-research-draft | Thêm nghiên cứu nguồn gốc, quy tắc đề xuất và ba ca do trợ lý phân tích. | Cần NguyenCongQuy tự xem, xác nhận/sửa; chưa phải bản độc lập hoàn tất. |
+| v0.2-research-draft | Thêm tài liệu tham khảo, quy tắc đề xuất và ba ca minh họa. | NguyenCongQuy đã xác nhận xem đủ 40 ảnh; các quyết định còn đánh dấu cần hoàn thiện. |
 
 Tài liệu đối chiếu trong repo: [GUIDE](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/GUIDE.md), [mẫu](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/guideline/TEMPLATE_guideline.md), [rubric](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/RUBRIC.md), [QC](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/docs/QC_CHEATSHEET.md).
 

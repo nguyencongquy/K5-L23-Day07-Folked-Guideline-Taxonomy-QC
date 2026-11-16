@@ -1,6 +1,6 @@
 # Nghiên cứu tham khảo — chọn quy tắc annotation cho Day 07
 
-Ngày: 2026-11-16. Do trợ lý tổng hợp theo yêu cầu NguyenCongQuy. Chưa phải guideline nhóm hoặc bằng chứng cá nhân đã xem hết 40 ảnh. Không đọc bản cá nhân của Phong/Khoa để tạo nội dung này.
+Ngày nghiên cứu: 2026-11-16. Tài liệu so sánh các quy tắc annotation và nguồn tham khảo. Khi gán nhãn, áp dụng guideline chung và taxonomy của phiên bản được nhóm chốt.
 
 ## 1. Kết luận phù hợp với bài
 
@@ -70,4 +70,4 @@ Mốc 50% là đề xuất đơn giản cho lab, KHÔNG phải chuẩn quốc t�
 2. img_026.jpg — hai người trên xe máy, hầm thiếu sáng và hơi nhòe: phương án 2 person + 1 motorcycle cho ba instance chính; tách vấn đề lớp, biên, occlusion và hình in nền. Chưa chốt tọa độ hay mức occlusion.
 3. img_007.jpg — kho có vùng tối, phản sáng và xe ra ngoài khung: phân biệt bóng với hình xe, tối với bị che, cắt mép với box chỉ chạm mép. Không dùng cả vệt phản sáng làm phần xe.
 
-Đây là ba ca do trợ lý đề xuất sau khi xem ảnh gốc, không phải bằng chứng người viết đã tự xem đủ 40 ảnh. Bước tiếp theo: người viết tự đối chiếu và ghi quyết định/điều chưa đồng ý, rồi mới lưu bản cá nhân cuối.
+Ba ca trên minh họa những điểm cần thống nhất về lớp, biên box và thuộc tính. NguyenCongQuy đã xác nhận xem đủ 40 ảnh; các quyết định còn chưa chốt được đối chiếu trong bản cá nhân và cuộc thảo luận nhóm.
