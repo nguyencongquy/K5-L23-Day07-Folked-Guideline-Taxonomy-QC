@@ -1,12 +1,13 @@
-# Guideline gán nhãn — v0 cá nhân — 102
+# Guideline gán nhãn — v0 cá nhân — PhungDanhKhoa_2A202603206
 
-- Mã thành viên 102
+- Định danh thành viên `PhungDanhKhoa_2A202603206`
+- Phân công gán độc lập 27 ảnh
 - Ngày 2026-11-16
 - Công cụ gán nhãn CVAT
 - Định dạng xuất COCO 1.0
 - Trạng thái bản nháp cá nhân để rà ảnh trước khi gửi riêng
 
-Các mã ảnh được đối chiếu với tài liệu lab và bản nháp cục bộ trước đó. Quyết định dưới đây là đề xuất. Thành viên 102 cần kiểm lại trên ảnh gốc và xác nhận hoặc sửa trước khi gửi.
+Các mã ảnh được đối chiếu với tài liệu lab và bản nháp cục bộ trước đó. Quyết định dưới đây là đề xuất. Thành viên PhungDanhKhoa cần kiểm lại trên ảnh gốc và xác nhận hoặc sửa trước khi gửi.
 
 ## 1. Mục tiêu
 
@@ -42,7 +43,7 @@ Giữ các lớp của taxonomy v0. Rà người thật nhìn thấy trên một
 
 ## 3. Quy tắc vẽ box
 
-Sau khi nhóm khóa v1.0, mở Job của Task 102 trong Project CVAT dùng bộ nhãn từ taxonomy đã chốt. Kiểm tra số frame khớp danh sách ảnh được giao và giữ cả frame không có đối tượng.
+Sau khi nhóm khóa v1.0, tạo Task CVAT `PhungDanhKhoa_2A202603206` trong Project dùng bộ nhãn từ taxonomy đã chốt. Tải 27 ảnh trong `work/PhungDanhKhoa_2A202603206/images/`, mở Job và kiểm tra đủ 27 frame. Giữ cả frame không có đối tượng.
 
 1. Chọn công cụ **Rectangle** và lớp tương ứng trong CVAT. Vẽ một hình chữ nhật cho mỗi đối tượng đủ điều kiện. Dùng lớp `ignore_region` cho vùng bỏ qua.
 2. Chọn box trong bảng **Objects** rồi điền `occluded_level`, `truncated` và `can_review` theo mục 2. Với box mơ hồ, tick `can_review` ngay trên box đó.
@@ -71,11 +72,11 @@ Sau khi nhóm khóa v1.0, mở Job của Task 102 trong Project CVAT dùng bộ 
 
 ## 5. QC và phiên bản
 
-- Trong Task CVAT, chọn **Actions → Export task dataset → COCO 1.0** và tắt **Save images**. Tải bản xuất ở **Requests**, giải nén và lấy JSON trong thư mục `annotations/`. Lưu thành `submission/labels/102.json`.
-- Chạy `python scripts/validate_labels.py submission/labels/102.json` từ thư mục gốc. Trong CVAT, đối chiếu ảnh gốc để rà box sát biên phần nhìn thấy, nhãn sai lớp, box trùng và vật bỏ sót.
+- Trong Task CVAT, chọn **Actions → Export task dataset → COCO 1.0** và tắt **Save images**. Tải bản xuất ở **Requests**, giải nén và lấy JSON trong thư mục `annotations/`. Lưu thành `submission/labels/PhungDanhKhoa_2A202603206.json`.
+- Chạy `python scripts/validate_labels.py submission/labels/PhungDanhKhoa_2A202603206.json` từ thư mục gốc. Trong CVAT, đối chiếu ảnh gốc để rà box sát biên phần nhìn thấy, nhãn sai lớp, box trùng và vật bỏ sót.
 - IAA dùng ghép một-một theo IoU ≥ 0,50 và tính IoU trung bình cùng đồng thuận lớp trên cặp ghép được. Mục tiêu IoU trung bình ≥ 0,85 và cùng lớp ≥ 95%. Ngưỡng IoU theo cặp là 0,85 khi chiều cao trung bình của hai box ≥ 50 px và 0,70 khi thấp hơn. Ghi mẫu số và thống kê box chưa ghép riêng.
 - QC ghi số ảnh có lỗi trên số ảnh đã duyệt và số annotation hiện có bị lỗi trên số annotation đối tượng đã duyệt. Đếm vật bỏ sót riêng. Release cần duyệt đủ lô, tỷ lệ ảnh lỗi ≤ 2%, không có lỗi lặp theo tiêu chí của lab và đủ bằng chứng hiện hành.
-- Thành viên 102 chuyển ca chưa rõ cho người điều phối để đưa vào họp thống nhất. Sau khi nhóm khóa v1.0, ca phát sinh đi vào review và calibration.
+- Thành viên PhungDanhKhoa chuyển ca chưa rõ cho người điều phối để đưa vào họp thống nhất. Sau khi nhóm khóa v1.0, ca phát sinh đi vào review và calibration.
 
 | Phiên bản | Quy tắc bổ sung | Ảnh hoặc lý do |
 |---|---|---|
