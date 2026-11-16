@@ -1,117 +1,82 @@
-# Guideline gán nhãn — v0.2-research-draft — NguyenCongQuy_2A202603149
+# Guideline cá nhân — NguyenCongQuy_2A202603149
 
-- Phiên bản: v0.2-research-draft, bản cá nhân chưa chốt.
-- Ngày soạn khung: 2026-11-16.
-- Thành viên: NguyenCongQuy_2A202603149.
-- Trạng thái: NguyenCongQuy xác nhận đã xem đủ 40 ảnh. Các quyết định cá nhân còn cần hoàn thiện ở những mục được đánh dấu.
-- Cơ sở: TEMPLATE_guideline.md, guideline_v0_starter.md, GUIDE.md, RUBRIC.md, taxonomy.json và QC_CHEATSHEET.md của repo nhóm.
-
-> Đã xem đủ 40 ảnh. Các mục “CẦN BỔ SUNG” đánh dấu phần diễn giải còn thiếu trong bản nháp cá nhân. Khi gán nhãn, áp dụng [guideline chung v1.0](../guideline_v1.0_agreed.md) đã được cả nhóm xác nhận ngày 2026-11-16. Những phương án khác trong bản nháp này được giữ để đối chiếu quyết định ban đầu.
+- Phiên bản v1.0, hoàn thiện ngày 2026-11-16 sau khi nhóm chốt quy tắc chung.
+- Đã xem đủ 40 ảnh. Lượt gán độc lập được phân công 26 ảnh.
+- Áp dụng [guideline nhóm v1.0](../guideline_v1.0_agreed.md) và [taxonomy](../../taxonomy.json).
 
 ## 1. Mục tiêu
 
-Tạo nhãn bounding box cho mô hình phát hiện người và phương tiện trên bộ 40 ảnh đường phố của lab. Công cụ gán: CVAT; định dạng trao đổi: COCO 1.0.
-
-Guideline cần giúp người gán quyết định nhất quán: vật nào thuộc phạm vi, lớp nào phù hợp, box bao phần nào và thuộc tính nào áp dụng. Mỗi ca khó phải truy lại được ảnh và lý do quyết định.
-
-Trong Pha 1, người viết xem đủ 40 ảnh, không chỉ 26 ảnh được phân công cho lượt gán độc lập. Bản cá nhân được giữ nguyên sau cuộc họp; quyết định chung ghi ở file v1.0 riêng.
+Gán bounding box người và phương tiện để huấn luyện mô hình phát hiện vật thể trên ảnh đường phố. Dùng CVAT, xuất COCO 1.0. Box bao dư, gộp người với xe hoặc bỏ sót vật sẽ làm sai vị trí và lớp mà mô hình học.
 
 ## 2. Lớp và thuộc tính
 
-### 2.1. Bộ lớp ban đầu và điểm phải làm rõ
+### Lớp
 
-Bảng dưới ghi cơ sở v0, chưa thay thế định nghĩa do người viết tự hoàn thiện.
+| Lớp | Cách nhận biết | Ví dụ | Dễ nhầm / loại khỏi lớp |
+|---|---|---|---|
+| `car` | Ô tô con hoặc SUV thật. | Ô tô được chở trong `img_002`. | Van thân hộp; pickup có thùng hàng riêng. |
+| `truck` | Xe có cabin và sàn/thùng hàng riêng, gồm pickup và xe chở ô tô. | Xe chở ở `img_002`; pickup ở `img_037`. | Van có khoang kín liền thân. Pickup có nắp thùng vẫn là truck. |
+| `van` | Xe cỡ nhỏ thân hộp, khoang kín phía sau liền thân với cabin. | Van phía sau người đi xe ở `img_005`. | SUV, pickup và bus. Thiếu dấu hiệu phân biệt thì dùng review. |
+| `motorcycle` | Xe máy hoặc mô tô hai bánh có động cơ, gồm xe tay ga. | Xe máy ở `img_005`, `img_026`. | Xe đạp, xích lô, tuk-tuk. Người ngồi trên xe có box riêng. |
+| `person` | Người thật nhìn trực tiếp, gồm người đi bộ và người trên phương tiện. | Hai người trên xe ở `img_026`. | Chân dung in ở `img_018`, tượng, ma-nơ-canh, ảnh phản chiếu. |
+| `ignore_region` | Vùng chứa vật thuộc phạm vi nhưng quá nhỏ hoặc quá dày để tách đáng tin cậy. | Cụm xe/người xa có từng box cao dưới 20 px. | Vật ngoài taxonomy hoặc vật rõ, cao từ 20 px trở lên. |
 
-| Lớp | Cơ sở trong taxonomy v0 | CẦN BỔ SUNG vào bản cá nhân |
-|---|---|---|
-| `car` | Ô tô con, SUV. | Tiêu chí phân biệt với van/truck; ID ảnh ví dụ và phản ví dụ. |
-| `truck` | Xe tải, xe có thùng hàng riêng. | Cách xử lý pickup và xe chở xe; ID ảnh minh họa, lý do. |
-| `van` | Xe thùng kín cỡ nhỏ. | Dấu hiệu phân biệt với xe con hoặc xe tải kín; ca không đủ bằng chứng. |
-| `motorcycle` | Xe máy, mô tô. | Ranh giới box xe khi có người ngồi, nhiều người ngồi hoặc vật chở kèm. |
-| `person` | Người đi bộ hoặc người ngồi trên xe. | Quan hệ với lớp xe; số box và phần được bao khi người ngồi trên xe máy. |
-| `ignore_region` | Vùng bỏ qua việc gán từng vật. | Ranh giới vùng, điều kiện sử dụng và cách tránh bỏ qua vật còn nhận diện được. |
+Bus, tuk-tuk, xe đạp và xích lô nằm ngoài bộ lớp v1.0. Bỏ qua phương tiện đó, vẫn xét riêng người thật trên xe. Khi chưa xác định được vật có thuộc phạm vi hay không, ghi vị trí và lý do để review.
 
-Vật ngoài taxonomy: CẦN BỔ SUNG quyết định cá nhân và ca ảnh thật. Phân biệt loại có chủ đích theo quy tắc với trường hợp chưa đủ bằng chứng cần reviewer. Chưa sửa taxonomy chung ở Pha 1.
+### Thuộc tính
 
-### 2.2. Thuộc tính
+Ước lượng tỷ lệ phần vật bị vật khác che so với tổng phần nhìn thấy và phần bị che trong khung ảnh. Phần nằm ngoài mép ảnh được xét bằng `truncated`.
 
-| Thuộc tính | Giá trị hiện có | Nghĩa trong v0 / việc cần hoàn thiện |
-|---|---|---|
-| `occluded_level` | `0`, `1`, `2`, `3` | V0 mô tả thấy rõ / che ít / che nhiều / không rõ. CẦN BỔ SUNG ngưỡng cụ thể, cách ước lượng và xử lý đúng tại ranh giới mức. |
-| `truncated` | `no`, `yes` | Vật bị cắt ở mép ảnh; không đồng nhất với bị vật khác che. CẦN BỔ SUNG cách xác định phần vật cần xét và ca ví dụ. |
-| `can_review` | true / false | Đánh dấu box còn chưa chắc để review; phải ghi điểm chưa rõ và lý do. Không có box khả thi thì ghi vấn đề cấp ảnh thay vì tạo box tùy ý. |
-
-Phương án ngưỡng đề xuất để người viết đánh giá (chưa khóa, không phải chuẩn phần trăm chung của ngành):
-
-| Mức | Cách xác định đề xuất |
+| `occluded_level` | Tỷ lệ bị che |
 |---|---|
-| `0` | Không có bằng chứng bị vật khác che phần hình chiếu cần xét. |
-| `1` | Có che khuất; ước lượng phần bị che lớn hơn 0% nhưng nhỏ hơn 50%. |
-| `2` | Ước lượng phần bị che từ 50% trở lên; vẫn còn phần nhìn thấy và đủ bằng chứng xác định instance. |
-| `3` | Không thể ước lượng đáng tin cậy mức che khuất; bật thêm `can_review` và nêu lý do. Không dùng làm giá trị “che nhiều nhất”. |
+| `0` | 0%. |
+| `1` | Trên 0% đến hết 30%. |
+| `2` | Trên 30% đến hết 70%. |
+| `3` | Trên 70%, còn phần nhìn thấy đủ điều kiện gán. |
 
-Tỷ lệ che khuất là ước lượng phần silhouette bị vật khác che so với silhouette toàn vật dự kiến trong khung ảnh; không phải tỷ lệ nền trong box. Phần vật nằm ngoài ảnh xét riêng bằng `truncated`. Không cần vẽ mask hoặc suy diễn amodal box để tính tỷ lệ: nếu quan sát không đủ tin cậy, chọn mức `3` và review. Ca sát mốc 50% mà không phân định được cũng chuyển review.
+- `truncated=yes` khi mép ảnh thực sự cắt qua vật; `no` khi vật nằm trọn trong ảnh. Một vật có thể vừa bị che vừa bị cắt mép.
+- `can_review=true` khi đặt được box nhưng còn nghi ngờ lớp, biên hoặc mức che. Ghi ảnh, vị trí và lý do. Sát ngưỡng 30%/70% thì chọn mức có căn cứ và đánh dấu review.
+- Nếu không đặt được box đáng tin cậy, ghi vấn đề cấp ảnh để nhóm xử lý. Riêng `ignore_region` có thể để trống các thuộc tính đối tượng.
+- Trong CVAT, điền `occluded_level` trong Details. Cờ Occluded/phím Q là trường riêng và checker lab bỏ qua.
 
-Mờ/tối không tự động đồng nghĩa bị che. Nếu biết vật không bị che nhưng biên khó xác định: giữ mức che tương ứng, dùng `can_review` cho độ bất định. Vật hoàn toàn không nhìn thấy không được tạo box chỉ nhờ suy đoán.
+## 3. Quy tắc vẽ box
 
-CẦN XÁC NHẬN: người viết có chấp nhận cách ước lượng và mốc 50% này sau khi tự thử trên ảnh không. Chưa có số đo occlusion cho bất kỳ instance nào trong ba ảnh tham khảo.
+Mã quy tắc dưới đây khớp bản chung để tiện đối chiếu khi review.
 
-## 3. Quy tắc vẽ box — phương án đề xuất
-
-Các quy tắc sau là phương án cá nhân để đối chiếu mục tiêu lab và tài liệu tham khảo. Các điểm còn chưa chốt được ghi riêng để thảo luận nhóm.
-
-| Rule ID | Phương án đề xuất và giới hạn |
+| Rule ID | Cách làm |
 |---|---|
-| R-01 | Một instance, một box chữ nhật nhỏ nhất bao các phần nhìn thấy xác định được của instance đó. Không kéo cạnh tới vị trí chi bị che chỉ vì suy đoán. Phần nhìn thấy rời nhau vẫn thuộc cùng instance nếu có bằng chứng liên kết. |
-| R-02 | Các box của hai vật có thể chồng nhau do hình học chữ nhật. Không cắt bớt box chỉ để tránh chồng. Nền hoặc vật phía trước có thể nằm bên trong hình chữ nhật; điều đó không đồng nghĩa chúng thuộc instance đang gán. |
-| R-03 | Một người trên một xe máy: một `person` và một `motorcycle`; hai người trên một xe: hai `person` và một `motorcycle`, nếu từng instance đạt điều kiện gán. Box người bao phần người nhìn thấy và trang phục/mũ đang đội; box xe không cố tình mở rộng để bao người. Không tự thêm lớp `rider` vào taxonomy chung. |
-| R-04 | `occluded_level` phản ánh vật khác che; `truncated=yes` khi bản thân vật tiếp tục ra ngoài mép ảnh, không chỉ vì box chạm mép. Hai trạng thái có thể cùng xuất hiện. |
-| R-05 | Mờ/tối: xem ảnh gốc và phóng to để kiểm bằng chứng. Chỉ đặt cạnh theo biên hỗ trợ được; không bao bóng đổ hoặc quầng nhòe xa vật. Có box khả thi nhưng chưa chắc: `can_review`. Không xác định được lớp/biên đủ tin cậy: ghi ảnh, vùng và lý do vào vấn đề cấp ảnh; không tạo box giả. Giữ nguyên ảnh gốc và dựa vào chi tiết quan sát được khi đặt box. |
-| R-06 | Tượng, hình in, đồ chơi và ảnh phản chiếu không tự động là vật thật cần phát hiện. Đối chiếu tiêu chí vật thật trong mục tiêu lab; ghi rõ lý do loại hoặc chuyển review. Không mặc định mọi ca bị loại đều phải phủ `ignore_region`. |
-| R-07 | Vật có box phần nhìn thấy cao < 20 px: áp dụng quy tắc `ignore_region` của lab, giới hạn vùng hợp lý. Không gom cả đám đông nếu vẫn tách được các instance đạt điều kiện. |
-| R-08 | Xe chở xe: xét xe mang hàng và từng xe được chở như các instance riêng nếu đủ bằng chứng, không gộp thành một box. Vật ngoài taxonomy phải ghi là ngoài phạm vi/chưa chốt, không ép sang lớp gần giống; đề xuất đổi taxonomy đưa ra Pha 2. |
+| R-01 | Vẽ hình chữ nhật nhỏ nhất bao mọi phần nhìn thấy của cùng một vật. Phần khuất không được suy diễn để nới box. |
+| R-02 | Mỗi vật một box. Box của các vật khác nhau được phép chồng nhau. |
+| R-03 | Tách từng người và xe. Hai người trên một xe máy có hai box person và một box motorcycle, nếu từng vật đủ điều kiện. |
+| R-04 | Tách xe chở và từng xe được chở. Box xe chở gồm phần xe, khung/sàn cố định; hàng rời và ô tô được chở được xét riêng. |
+| R-05 | Đo chiều cao box theo pixel ảnh gốc. Từ 20 px trở lên và đủ rõ thì gán từng vật; dưới 20 px hoặc không tách được cụm thì dùng vùng ignore nhỏ hợp lý. |
+| R-06 | Chỉ gán vật thật nhìn trực tiếp. Bỏ hình in, màn hình, tượng, ma-nơ-canh, đồ chơi và phản chiếu. |
+| R-07 | Bỏ phần xe chủ chỉ lộ theo góc camera như nắp ca-pô hoặc gương. Tiếp tục xét các vật thật khác trong cảnh. |
+| R-08 | Phân biệt car/van/truck bằng kiểu thân xe. Khi thiếu dấu hiệu, ghi review. |
+| R-09 | Chặn box ở mép ảnh và xét truncated riêng với occlusion. |
+| R-10 | Ảnh tối hoặc mờ vẫn xét theo biên nhìn được. Loại bóng đổ, vệt phản sáng và quầng nhòe khỏi phần cần bao. |
+| R-11 | Cảnh đông vẫn tách từng vật đủ rõ và đủ kích thước. Vùng ignore cần tránh phủ vật còn gán được. |
+| R-12 | Vật ngoài bộ lớp được loại theo phạm vi. Vật còn nghi ngờ được ghi review, kèm lý do. |
 
-BBox bao phần nhìn thấy là lựa chọn cho lab này, dựa trên khung đề. Không suy ra rằng mọi bộ dữ liệu khác cũng dùng quy tắc đó. Segmentation, keypoint và tracking là các nhiệm vụ khác; không thêm vào đầu ra COCO bbox của lab.
+## 4. Ca khó và cách xử lý
 
-## 4. Ba ca khó tham khảo cần người viết tự đối chiếu
-
-**Đã xem đủ 40 ảnh. Ba ảnh dưới đây được dùng làm ca tham khảo để trình bày các điểm cần thống nhất về box, lớp và thuộc tính.**
-
-| Ảnh | Quan sát trực tiếp | V0 còn mơ hồ | Phương án xử lý tham khảo | Lý do |
-|---|---|---|---|---|
-| `img_005.jpg` | Nhiều người đội mũ ngồi trên các xe máy che nhau; phía sau có xe lớn. | Có gộp người với xe không; phần khuất có được suy diễn không; box có được chồng nhau không? | R-01–R-04: tách từng người và xe có thể phân biệt; bao phần nhìn thấy, giữ box chồng khi cần. Từng instance chỉ còn một phần quá ít/chưa phân định được phải review, không tự đoán số người/xe bị khuất. | Tránh gộp hai loại vật và tránh thu nhỏ box để né chồng. Không biến che khuất thành một instance mới. |
-| `img_026.jpg` | Hai người ngồi cùng xe máy trong hầm; ánh sáng yếu và có nhòe, một số phần thân/xe bị người kia che; nền có hình in lớn. | Một người + xe hay các instance tách biệt? Mờ có phải occluded? Vật trong hình in có được gán như vật thật? | Với các instance chính: đề xuất hai box `person`, một box `motorcycle`, bám phần nhìn thấy; kiểm riêng mờ, che và cắt mép. Bật review khi cạnh không chắc; không coi hình in là vật thật. Không quyết định phần trăm che chỉ từ tên file. | Mỗi người là một instance; nhòe là chất lượng ảnh, không phải mức che. Người viết cần kiểm lại từng cạnh trước khi chốt. |
-| `img_007.jpg` | Xe trong kho, vùng dưới xe tối và sàn có phản sáng; xe bên phải tiếp tục ra ngoài khung ảnh. | Bóng/phản sáng có thuộc box xe không; tối có phải bị che; chạm mép có đồng nghĩa truncated? | R-01, R-04, R-05: đặt cạnh theo thân/bánh/chi tiết thuộc xe nhận ra được; không bao vệt phản sáng trên sàn. Xe thực sự bị khung ảnh cắt đánh truncated; vùng tối khó chắc dùng review, không kéo box xuống theo bóng. | Tách hình học cắt mép khỏi điều kiện ánh sáng; tránh box phình do bóng và phản chiếu. |
-
-CẦN NGƯỜI VIẾT XÁC NHẬN cho từng hàng: đồng ý / sửa quyết định / chưa chốt, cùng lý do quan sát. Chưa ghi tọa độ box, mức occlusion cụ thể hay kết quả QC cho các ảnh này.
+| Ảnh | Tình huống | Quyết định áp dụng | Rule ID và lý do |
+|---|---|---|---|
+| `img_005.jpg` | Người và xe máy che nhau. | Tách từng người và từng xe nhận ra được; box bám phần nhìn thấy. Xét mức che riêng cho từng vật. | R-01–R-03. Tránh gộp người với xe hoặc đoán thêm vật hoàn toàn khuất. |
+| `img_026.jpg` | Hai người trên một xe trong hầm tối. | Cụm chính có hai person và một motorcycle nếu từng vật đạt điều kiện. Mờ/tối được xét khi chọn biên, mức che xét theo vật che thật. | R-03, R-10. Giữ đúng đơn vị từng vật. |
+| `img_007.jpg` | Xe trong kho, sàn phản sáng, xe cắt mép. | Bao thân/bánh thấy được; bỏ vệt phản sáng trên sàn. Vật thực sự bị cắt mép nhận truncated=yes. | R-09, R-10. Tránh box rộng theo bóng hoặc phản sáng. |
+| `img_018.jpg` | Chân dung in trên biển. | Bỏ chân dung in, tiếp tục rà người và xe thật trong cảnh. | R-06. Hình biểu diễn bị loại theo quy tắc vật thật. |
+| `img_035.jpg` | Tuk-tuk chở hàng. | Loại tuk-tuk khỏi lớp phương tiện v1.0; xét riêng người thật và xe khác thuộc bộ lớp. | R-12. Giữ phạm vi lớp thống nhất. |
+| `img_037.jpg` | Pickup có nắp cao gần xe buýt. | Pickup là truck khi thấy cabin/thùng riêng; bus ngoài phạm vi. Chưa rõ kiểu thân thì đánh review. | R-08, R-12. Phân loại theo cấu trúc xe. |
 
 ## 5. QC và phiên bản
 
-### 5.1. Ngưỡng có sẵn trong lab
+- Trước khi xuất, rà bỏ sót, box trùng/gộp, lớp, độ sát biên và ba thuộc tính. Các ca mơ hồ được nhóm chốt trong calibration.
+- Xuất COCO 1.0 và kiểm đủ 26 ảnh bằng `python scripts/validate_labels.py submission/labels/NguyenCongQuy_2A202603149.json`.
+- Ghép IAA dùng IoU từ 0.5. Ngưỡng cặp box cao trung bình từ 50 px là 0.85, thấp hơn là 0.70. Mục tiêu IoU trung bình từ 0.85 và đồng thuận lớp từ 95%, báo kèm số cặp ghép được.
+- QC duyệt đủ 40 ảnh và báo tỷ lệ lỗi theo ảnh/đối tượng kèm tử số, mẫu số. Ngưỡng ảnh lỗi là 2%; một ảnh lỗi trên 40 tương đương 2.5%.
+- Reviewer xác nhận Hold khi thiếu bằng chứng, Rework khi vượt ngưỡng hoặc có lỗi lặp, Release khi đủ điều kiện. Số liệu được điền sau khi thực hiện.
 
-Các số dưới đây lấy từ taxonomy và QC_CHEATSHEET, không phải số đo của bài làm:
-
-- Mốc vật nhỏ: chiều cao < 20 px; áp dụng `ignore_region` theo quy tắc vật nhỏ đã làm rõ.
-- Ngưỡng so box: cao >= 50 px dùng IoU 0.85; thấp hơn dùng 0.7.
-- Ghép cặp IAA: 1–1, IoU ghép >= 0.5; báo box chưa ghép riêng.
-- IAA mục tiêu: IoU trung bình >= 0.85 và đồng thuận lớp >= 95%, tính trên các cặp box ghép được; không có cặp ghi N/A.
-- Độ phủ: phải đủ lượt theo bảng phân công trước khi đo IAA.
-- QC bàn giao: duyệt đủ 40 ảnh; tỉ lệ ảnh lỗi <= 2% và không có lỗi lặp mới đủ điều kiện xét Release. Một ảnh lỗi trên 40 là 2.5%, vượt ngưỡng.
-- Báo cả tỉ lệ lỗi theo ảnh và theo đối tượng, có tử số/mẫu số. Script không tự chứng minh box đúng vật hoặc ôm sát.
-- Hold khi thiếu bằng chứng hoặc guideline/dữ liệu còn vấn đề. Rework khi vượt ngưỡng hoặc có lỗi lặp. Reviewer xác nhận quyết định cuối bằng bằng chứng thực tế.
-
-### 5.2. Ca mơ hồ và lịch sử
-
-- Pha 1: giữ quyết định ban đầu hoặc ghi chưa chốt; trao đổi khi cả ba bản cá nhân đã nộp riêng.
-- Pha 2: nhóm chốt v1.0 và taxonomy khớp; không sửa bản cá nhân để che mất bất đồng ban đầu.
-- Pha 3: giữ v1.0 trong lượt gán độc lập; ghi `can_review`/vấn đề cấp ảnh.
-- Chưa thực hiện: đo IAA, calibration, duyệt QC hoặc kết luận Release.
-
-| Phiên bản | Thay đổi | Cơ sở và trạng thái |
+| Phiên bản | Ngày | Nội dung |
 |---|---|---|
-| v0.1-draft | Dựng khung 5 phần theo đề. | Chưa có ca ảnh và quyết định cá nhân. |
-| v0.2-research-draft | Thêm tài liệu tham khảo, quy tắc đề xuất và ba ca minh họa. | NguyenCongQuy đã xác nhận xem đủ 40 ảnh; các quyết định còn đánh dấu cần hoàn thiện. |
-
-Tài liệu đối chiếu trong repo: [GUIDE](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/GUIDE.md), [mẫu](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/guideline/TEMPLATE_guideline.md), [rubric](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/RUBRIC.md), [QC](https://github.com/nguyencongquy/K5-L23-Day07-Folked-Guideline-Taxonomy-QC/blob/main/docs/QC_CHEATSHEET.md).
-
-Bản nghiên cứu và nguồn ngoài: [Nghiên cứu quy tắc annotation](../../../docs/research/day07_annotation_rules.md).
+| v1.0 | 2026-11-16 | Hoàn thiện định nghĩa lớp, thuộc tính, quy tắc và ca khó theo bản nhóm đã chốt; dùng mức che 30%/70%. Các bản trước được lưu trong lịch sử Git. |

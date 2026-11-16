@@ -49,7 +49,7 @@ Nhóm sử dụng họ tên và mã số học viên để đối chiếu ngư�
 ## Trạng thái và kết quả cuối bài
 
 - Đã hoàn thành: khai báo thành viên, sinh bảng phân công và danh sách ảnh.
-- Guideline cá nhân: đã tập hợp ba file trên main. NguyenCongQuy xác nhận đã xem đủ 40 ảnh; Quý và Khoa còn các mục nháp/đề xuất cần hoàn thiện.
+- Guideline cá nhân: đã tập hợp ba file trên main. NguyenCongQuy đã xem đủ 40 ảnh và hoàn thiện bản cá nhân v1.0 theo quy tắc nhóm đã chốt ngày 2026-11-16.
 - Guideline chung: [v1.0](submission/guidelines/guideline_v1.0_agreed.md) đã được cả ba thành viên xác nhận sử dụng, theo xác nhận của người điều phối NguyenCongQuy ngày 2026-11-16. Taxonomy/CVAT đã đồng bộ.
 - Mốc khóa v1.0: 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516`. Phạm vi khóa gồm guideline chung, taxonomy và cấu hình nhãn CVAT tại commit này.
 - Lượt gán hoàn tất / được giao: chưa ghi nhận / 80.
