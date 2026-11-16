@@ -6,7 +6,7 @@
 - Định dạng xuất COCO 1.0
 - Trạng thái bản nháp cá nhân để rà ảnh trước khi gửi riêng
 
-Bản nháp có hỗ trợ của Codex. Các mã ảnh được đối chiếu với tài liệu lab và bản nháp cục bộ trước đó. Quyết định dưới đây là đề xuất. Thành viên 102 cần kiểm lại trên ảnh gốc và xác nhận hoặc sửa trước khi gửi.
+Các mã ảnh được đối chiếu với tài liệu lab và bản nháp cục bộ trước đó. Quyết định dưới đây là đề xuất. Thành viên 102 cần kiểm lại trên ảnh gốc và xác nhận hoặc sửa trước khi gửi.
 
 ## 1. Mục tiêu
 
