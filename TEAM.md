@@ -50,8 +50,8 @@ Nhóm sử dụng họ tên và mã số học viên để đối chiếu ngư�
 
 - Đã hoàn thành: khai báo thành viên, sinh bảng phân công và danh sách ảnh.
 - Guideline cá nhân: đã tập hợp ba file trên main. NguyenCongQuy xác nhận đã xem đủ 40 ảnh; Quý và Khoa còn các mục nháp/đề xuất cần hoàn thiện.
-- Guideline chung: [v1.0](submission/guidelines/guideline_v1.0_agreed.md) đã tổng hợp, taxonomy/CVAT đã đồng bộ; cần ba người đọc/thống nhất trước khi vẽ, chưa ghi nhận xác nhận thực tế.
-- Mốc khóa v1.0 (ngày/commit và xác nhận thực tế của nhóm): chưa ghi nhận.
+- Guideline chung: [v1.0](submission/guidelines/guideline_v1.0_agreed.md) đã được cả ba thành viên xác nhận sử dụng, theo xác nhận của người điều phối NguyenCongQuy ngày 2026-11-16. Taxonomy/CVAT đã đồng bộ.
+- Mốc khóa v1.0: 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516`. Phạm vi khóa gồm guideline chung, taxonomy và cấu hình nhãn CVAT tại commit này.
 - Lượt gán hoàn tất / được giao: chưa ghi nhận / 80.
 - IAA trước calibration (kèm mẫu số): chưa đo.
 - Số ảnh phải calibration: chưa xác định / 40.
@@ -66,8 +66,8 @@ Mỗi thành viên đọc guideline chung, taxonomy và phản hồi trong kênh
 
 | Thành viên | Xác nhận phạm vi đã xem | Xác nhận áp dụng guideline v1.0 | Ngày và commit khóa |
 |---|---|---|---|
-| TranPhamHoangPhong_2A202603198 | Chưa ghi nhận trong bảng này | Chờ xác nhận | Chưa chốt |
-| PhungDanhKhoa_2A202603206 | Chưa ghi nhận trong bảng này | Chờ xác nhận | Chưa chốt |
-| NguyenCongQuy_2A202603149 | Đã xem đủ 40 ảnh, theo xác nhận của thành viên | Chờ xác nhận | Chưa chốt |
+| TranPhamHoangPhong_2A202603198 | Chưa ghi nhận trong bảng này | Đồng ý sử dụng, theo xác nhận của người điều phối | 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516` |
+| PhungDanhKhoa_2A202603206 | Chưa ghi nhận trong bảng này | Đồng ý sử dụng, theo xác nhận của người điều phối | 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516` |
+| NguyenCongQuy_2A202603149 | Đã xem đủ 40 ảnh, theo xác nhận của thành viên | Đồng ý sử dụng, theo xác nhận của người điều phối | 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516` |
 
-Các điểm cần cùng hiểu gồm sáu lớp, box phần nhìn thấy, tách người và xe, mức che 0/30/70, cắt mép, ngưỡng chiều cao 20 px và cách dùng can_review/ignore_region. Khi đủ xác nhận, người điều phối điền ngày và commit khóa thực tế; cả nhóm dùng cùng bản trong lượt gán độc lập.
+Các điểm cần cùng hiểu gồm sáu lớp, box phần nhìn thấy, tách người và xe, mức che 0/30/70, cắt mép, ngưỡng chiều cao 20 px và cách dùng can_review/ignore_region. Đã ghi nhận đủ ba xác nhận qua người điều phối ngày 2026-11-16; cả nhóm dùng bản tại commit khóa trong lượt gán độc lập.

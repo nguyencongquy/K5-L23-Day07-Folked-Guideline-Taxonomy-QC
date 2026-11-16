@@ -4,7 +4,7 @@
 - Phạm vi: 40 ảnh `data/images/img_001.jpg`–`img_040.jpg`; bounding box 2D; CVAT; COCO 1.0.
 - Nguồn: ba bản cá nhân được giữ nguyên trong [individual/](individual/), đối chiếu tại commit 1090cd3d7c917d8c2a079b1a65e617d2e97a0194.
 - Bản chung tổng hợp các phương án trong ba guideline cá nhân để nhóm thảo luận và xác nhận.
-- Trạng thái: bản quy tắc chung đã soạn và đồng bộ taxonomy; cả ba người cần đọc, thống nhất trước khi bắt đầu lượt gán độc lập. Chưa ghi nhận xác nhận của từng người. Khi bắt đầu Pha 3, khóa bản này và `submission/taxonomy.json`; thay đổi phát sinh xử lý ở calibration, không âm thầm sửa v1.0.
+- Trạng thái: cả ba thành viên đã xác nhận sử dụng, theo xác nhận của người điều phối NguyenCongQuy ngày 2026-11-16. Khóa nội dung quy tắc, taxonomy và cấu hình nhãn CVAT tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Thay đổi phát sinh trong lượt gán độc lập được ghi lại để xử lý ở calibration.
 - Tài liệu có thẩm quyền về quy trình: [GUIDE.md](../../GUIDE.md), [RULES.md](../../RULES.md), [RUBRIC.md](../../RUBRIC.md).
 
 ## 1. Mục tiêu và phạm vi
@@ -116,7 +116,7 @@ P = bản Phong; K = bản Khoa; Q = bản nghiên cứu của Quý. Q và K cò
 4. `python scripts/make_cvat_labels.py` → [labels_generated.json](../../cvat/labels_generated.json). Cấu hình này sinh từ taxonomy v1.0, không sửa tay JSON CVAT.
 5. Tạo Project CVAT dùng bộ lớp trên; mỗi người tạo Task riêng, tải đúng `work/<Ten_MSHV>/images/`. Phong 27, Khoa 27, Quý 26 ảnh, theo [assignment.csv](../qc/assignment.csv). Giữ frame không có vật; không upload cả 40 ảnh vào mỗi Task gán độc lập.
 
-Tất cả đang chờ guideline theo thông tin người điều phối, chưa có nhãn được ghi nhận cho lượt này. Không cần xóa/tạo lại nhãn. Nếu phát hiện Task đã có box theo quy tắc khác, lưu bản cũ riêng, đối chiếu khác biệt và rà trước khi coi là nhãn theo v1.0.
+Cả ba thành viên đã xác nhận sử dụng v1.0; nhóm có thể bắt đầu lượt gán độc lập. Tiến độ nhãn được cập nhật theo file COCO thực tế. Task đã có box theo quy tắc khác cần lưu bản cũ riêng, đối chiếu khác biệt và rà theo v1.0.
 
 ### 5.2. Tự kiểm và xuất nhãn
 
@@ -150,4 +150,4 @@ Hold khi thiếu bằng chứng, chưa chốt quy tắc hoặc có vấn đề d
 | v0 | Bản khởi đầu: lớp ngắn, “ôm sát”, mức che chưa định lượng. | Starter của lab. |
 | v1.0 | Định nghĩa sáu lớp, R-01–R-12, che 30/70, tách người/xe, vật nhỏ, ngoài taxonomy và đường review; đồng bộ taxonomy/nhãn CVAT. | Tổng hợp ba bản cá nhân tại 1090cd3d7c917d8c2a079b1a65e617d2e97a0194, giải quyết khác biệt ở mục 4.2; không thay ngưỡng lab. |
 
-Xác nhận sử dụng trước lượt gán: chưa ghi nhận từng thành viên trong bản tổng hợp này. Người điều phối thu xác nhận thực tế rồi ghi ngày/commit trong ghi chú nhóm; không tự ghi “đã họp”, “cả nhóm đồng ý” hoặc số đo chưa có.
+Ngày 2026-11-16, người điều phối NguyenCongQuy xác nhận cả TranPhamHoangPhong_2A202603198, PhungDanhKhoa_2A202603206 và NguyenCongQuy_2A202603149 đã đồng ý sử dụng guideline chung v1.0 tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Bảng ghi nhận nằm trong TEAM.md. Đây là xác nhận sử dụng quy tắc; số đo IAA và QC được ghi sau khi thực hiện.

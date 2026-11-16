@@ -6,7 +6,7 @@
 - Trạng thái: NguyenCongQuy xác nhận đã xem đủ 40 ảnh. Các quyết định cá nhân còn cần hoàn thiện ở những mục được đánh dấu.
 - Cơ sở: TEMPLATE_guideline.md, guideline_v0_starter.md, GUIDE.md, RUBRIC.md, taxonomy.json và QC_CHEATSHEET.md của repo nhóm.
 
-> Đã xem đủ 40 ảnh. Các mục “CẦN BỔ SUNG” ghi phần quyết định cá nhân cần hoàn thiện trước khi khóa guideline chung.
+> Đã xem đủ 40 ảnh. Các mục “CẦN BỔ SUNG” đánh dấu phần diễn giải còn thiếu trong bản nháp cá nhân. Khi gán nhãn, áp dụng [guideline chung v1.0](../guideline_v1.0_agreed.md) đã được cả nhóm xác nhận ngày 2026-11-16. Những phương án khác trong bản nháp này được giữ để đối chiếu quyết định ban đầu.
 
 ## 1. Mục tiêu
 
