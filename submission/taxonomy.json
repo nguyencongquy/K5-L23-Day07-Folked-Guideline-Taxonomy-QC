@@ -24,7 +24,15 @@
     },
     {
       "name": "ignore_region",
-      "definition": "Vùng có đối tượng thuộc phạm vi nhưng box phần nhìn thấy cao dưới 20 px hoặc cụm không tách được đáng tin cậy. Không thay cho vật ngoài taxonomy, hình in, tượng hoặc mọi vùng tối."
+      "definition": "Vùng có đối tượng thuộc phạm vi nhưng visible bbox cao dưới 20 px, hoặc cụm chen chúc không tách được cá thể/biên đáng tin cậy dù một số phần cao >=20 px. Không phủ cả hàng người còn tách được; không thay cho vật ngoài taxonomy, hình in, tượng hoặc vùng tối."
+    },
+    {
+      "name": "bus",
+      "definition": "Xe buýt hoặc xe khách thật có thân chuyên chở nhiều hành khách; không gồm van cỡ nhỏ, hình in hoặc mô hình. Box bao các phần cố định nhìn thấy, người được xét riêng."
+    },
+    {
+      "name": "tuk_tuk",
+      "definition": "Xe ba bánh có động cơ dạng auto-rickshaw/tuk-tuk chở khách hoặc hàng; không gồm xe máy hai bánh, xe đạp/xích lô đạp chân. Box không bao hàng rời hoặc người."
     }
   ],
   "attributes": [

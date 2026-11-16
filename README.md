@@ -2,7 +2,9 @@
 
 **Nhóm 3 thành viên:** [Tên, mã học viên và việc cần làm](TEAM.md) · [Danh sách ảnh từng người](submission/qc/assignments/) · [Bảng chia chung](submission/qc/assignment.csv)
 
-**Trước khi vẽ:** đọc [guideline chung v1.0](submission/guidelines/guideline_v1.0_agreed.md), thống nhất quy tắc che 30/70 và dùng [bộ nhãn CVAT](cvat/labels_generated.json) sinh từ taxonomy v1.0.
+Tên file guideline của nhóm theo yêu cầu người sở hữu repo: `guideline_v1.0.md`; script và liên kết nhóm đã đồng bộ. Tài liệu đề gốc vẫn giữ tên `guideline_v1.0_agreed.md`.
+
+**Trước khi vẽ:** đọc [guideline chung v1.0](submission/guidelines/guideline_v1.0.md), thống nhất quy tắc che 30/70 và dùng [bộ nhãn CVAT](cvat/labels_generated.json) sinh từ taxonomy v1.0.
 
 **Nhóm 2–5 người · 4 giờ · 40 ảnh đường phố · gán box bằng CVAT**
 

@@ -18,7 +18,7 @@ Nhóm có 3 thành viên. Phạm vi chung: 40 ảnh trong `data/images/`.
 ## Việc mỗi thành viên cần làm
 
 1. Xem toàn bộ 40 ảnh; tự viết guideline cá nhân, chưa xem bản của nhau. Gửi riêng theo kênh nhóm/coach; chỉ tập hợp khi cả 3 người đã nộp.
-2. Cùng họp chốt `submission/guidelines/guideline_v1.0_agreed.md`, cập nhật `submission/taxonomy.json`, sinh bộ nhãn CVAT rồi khóa v1.0.
+2. Cùng họp chốt `submission/guidelines/guideline_v1.0.md`, cập nhật `submission/taxonomy.json`, sinh bộ nhãn CVAT rồi khóa v1.0.
 3. Mỗi người tạo Task CVAT riêng, upload đúng ảnh trong `work/<định-danh>/images/` và gán độc lập theo v1.0. Ca chưa rõ: dùng `can_review` hoặc ghi vấn đề cấp ảnh theo GUIDE.md.
 4. Export COCO 1.0; gửi riêng. Chỉ tập hợp nhãn khi mọi người đã nộp, sau đó chạy IAA, calibration và QC.
 
@@ -50,7 +50,7 @@ Nhóm sử dụng họ tên và mã số học viên để đối chiếu ngư�
 
 - Đã hoàn thành: khai báo thành viên, sinh bảng phân công và danh sách ảnh.
 - Guideline cá nhân: đã tập hợp ba file trên main. NguyenCongQuy đã xem đủ 40 ảnh và hoàn thiện bản cá nhân v1.0 theo quy tắc nhóm đã chốt ngày 2026-11-16.
-- Guideline chung: [v1.0](submission/guidelines/guideline_v1.0_agreed.md) đã được cả ba thành viên xác nhận sử dụng, theo xác nhận của người điều phối NguyenCongQuy ngày 2026-11-16. Taxonomy/CVAT đã đồng bộ.
+- Guideline chung: [v1.0](submission/guidelines/guideline_v1.0.md) bản sáu lớp đã có ba xác nhận tại commit dưới. Bản bổ sung tám lớp ngày 2026-11-16 cập nhật bus/tuk_tuk và ignore theo yêu cầu Quý; taxonomy và file cấu hình CVAT đã cập nhật. Project CVAT local #2 của Quý đã đồng bộ tám lớp; job #16 đã lưu 471 box trên đủ 26 ảnh. Chưa xác nhận cấu hình Task của Phong/Khoa. Cần ghi nhận xác nhận và commit khóa lại của cả nhóm; không coi xác nhận cũ là xác nhận bổ sung mới.
 - Mốc khóa v1.0: 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516`. Phạm vi khóa gồm guideline chung, taxonomy và cấu hình nhãn CVAT tại commit này.
 - Lượt gán hoàn tất / được giao: chưa ghi nhận / 80.
 - IAA trước calibration (kèm mẫu số): chưa đo.
@@ -71,3 +71,8 @@ Mỗi thành viên đọc guideline chung, taxonomy và phản hồi trong kênh
 | NguyenCongQuy_2A202603149 | Đã xem đủ 40 ảnh, theo xác nhận của thành viên | Đồng ý sử dụng, theo xác nhận của người điều phối | 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516` |
 
 Các điểm cần cùng hiểu gồm sáu lớp, box phần nhìn thấy, tách người và xe, mức che 0/30/70, cắt mép, ngưỡng chiều cao 20 px và cách dùng can_review/ignore_region. Đã ghi nhận đủ ba xác nhận qua người điều phối ngày 2026-11-16; cả nhóm dùng bản tại commit khóa trong lượt gán độc lập.
+
+
+## Bổ sung v1.0 ngày 2026-11-16
+
+Theo yêu cầu NguyenCongQuy, tích hợp hướng dẫn coach được báo lại vào chính guideline v1.0: thêm bus/tuk_tuk, màu nhãn và phân biệt đám đông khó tách với hàng người còn tách được. Mốc xác nhận sáu lớp phía trên được giữ làm lịch sử. Chưa ghi nhận xác nhận mới của Phong/Khoa, commit khóa lại hoặc việc rà lại nhãn theo tám lớp. Trước khi so IAA theo bản cập nhật, đồng bộ cả ba annotator và rà toàn bộ ảnh được giao; không trộn nhãn sáu/tám lớp. Nếu đã chuyển Pha 4–5, giữ dữ liệu lượt độc lập và dùng quy trình calibration v1.1 của đề.

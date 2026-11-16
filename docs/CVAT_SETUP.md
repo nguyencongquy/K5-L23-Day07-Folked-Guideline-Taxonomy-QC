@@ -51,3 +51,15 @@ Tên nhãn trong CVAT phải trùng `taxonomy.json`.
 - Export báo lỗi: chờ vài giây rồi tải lại ở trang Requests.
 
 Tham khảo: [COCO trong CVAT](https://docs.cvat.ai/docs/manual/advanced/formats/format-coco/) · [Manual QA](https://docs.cvat.ai/docs/qa-analytics/manual-qa/)
+
+## Lỗi class ngoài taxonomy sau khi thêm bus/tuk-tuk
+
+Bộ lớp hiện tại lấy từ `submission/taxonomy.json`; tên kỹ thuật là `bus` và `tuk_tuk`.
+`Tuk-tuk`, `tuk-tuk` hoặc `Bus` không tự được xem là cùng tên với các lớp này.
+
+1. Lấy bản mới trên nhánh `main` của repo nhóm; kiểm tra taxonomy đã có đủ tám lớp.
+2. Trong Labels của Project (hoặc Task nếu không thuộc Project), sửa tên nhãn hiện hữu `Tuk-tuk` thành `tuk_tuk`; nếu đang dùng `Bus`, sửa thành `bus`. Giữ ID nhãn và các box đã gán, không xóa class rồi tạo lại.
+3. Save và export lại COCO 1.0. Giữ bản export cũ riêng; không sửa `category_id` hoặc tọa độ box để xử lý lỗi tên.
+4. Chạy lại `python scripts/validate_labels.py submission/labels/<ma>.json` trên bản export mới.
+
+Không thêm nguyên tên `Tuk-tuk` vào taxonomy: schema hiện tại chỉ nhận tên lớp viết thường với chữ số/dấu gạch dưới. Không nới schema hoặc bỏ kiểm tra chỉ để hết báo lỗi. Nếu còn class khác bị báo ngoài taxonomy, đối chiếu định nghĩa lớp với nhóm trước khi đổi tên.

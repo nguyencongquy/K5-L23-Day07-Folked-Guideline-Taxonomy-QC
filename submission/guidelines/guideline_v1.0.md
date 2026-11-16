@@ -4,7 +4,7 @@
 - Phạm vi: 40 ảnh `data/images/img_001.jpg`–`img_040.jpg`; bounding box 2D; CVAT; COCO 1.0.
 - Nguồn: ba bản cá nhân được giữ nguyên trong [individual/](individual/), đối chiếu tại commit 1090cd3d7c917d8c2a079b1a65e617d2e97a0194.
 - Bản chung tổng hợp các phương án trong ba guideline cá nhân để nhóm thảo luận và xác nhận.
-- Trạng thái: cả ba thành viên đã xác nhận sử dụng, theo xác nhận của người điều phối NguyenCongQuy ngày 2026-11-16. Khóa nội dung quy tắc, taxonomy và cấu hình nhãn CVAT tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Thay đổi phát sinh trong lượt gán độc lập được ghi lại để xử lý ở calibration.
+- Trạng thái: bản sáu lớp trước đây đã được cả ba xác nhận tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Ngày 2026-11-16, NguyenCongQuy yêu cầu hoàn thiện lại v1.0 theo hướng dẫn coach được báo lại: thêm bus/tuk-tuk và làm rõ ignore đám đông. Bản hiện tại có tám lớp; cần cả nhóm đồng bộ và ghi mốc khóa lại trước lượt gán theo bản cập nhật. Chưa ghi nhận xác nhận mới của Phong/Khoa hoặc việc đã rà lại nhãn. Lịch sử Git giữ bản trước; đây không phải kết quả calibration v1.1.
 - Tài liệu có thẩm quyền về quy trình: [GUIDE.md](../../GUIDE.md), [RULES.md](../../RULES.md), [RUBRIC.md](../../RUBRIC.md).
 
 ## 1. Mục tiêu và phạm vi
@@ -21,14 +21,18 @@ Nhãn sai trên hình in/tượng gây box thừa; gộp nhiều người hoặc
 
 | Lớp | Định nghĩa áp dụng | Ví dụ | Phản ví dụ / ranh giới |
 |---|---|---|---|
-| `car` | Ô tô con/SUV chở người, không thuộc dạng thân hộp của van hay xe có thùng hàng riêng; gồm xe đỗ và xe được chở. | Ô tô trên xe chở trong `img_002.jpg`. | Pickup có thùng riêng → truck; bus ngoài phạm vi. |
+| `car` | Ô tô con/SUV chở người, không thuộc dạng thân hộp của van hay xe có thùng hàng riêng; gồm xe đỗ và xe được chở. | Ô tô trên xe chở trong `img_002.jpg`. | Pickup có thùng riêng → truck; xe buýt/xe khách → bus. |
 | `truck` | Xe tải có sàn/thùng hàng tách cabin, gồm xe chở ô tô và pickup. Thùng có nắp cao không tự đổi xe thành van. | Xe chở trong `img_002.jpg`; pickup `img_037.jpg` khi thấy kết cấu thùng riêng. | Xe khoang kín liền thân dạng hộp → van; tượng xe không gán. |
 | `van` | Xe cỡ nhỏ thân hộp, khoang hàng/hành khách kín phía sau liền thân với cabin; không có thùng pickup tách cabin. | Xe van thân hộp phía sau người đi xe trong `img_005.jpg`. | SUV → car; pickup gắn nắp thùng → truck; thiếu dấu hiệu phân biệt → review. |
-| `motorcycle` | Xe máy/mô tô hai bánh có động cơ, gồm xe tay ga; người ngồi trên xe là instance riêng. | Xe máy trong `img_005.jpg`, `img_026.jpg`. | Xe đạp, xích lô, tuk-tuk ba bánh ngoài phạm vi v1.0. |
+| `motorcycle` | Xe máy/mô tô hai bánh có động cơ, gồm xe tay ga; người ngồi trên xe là instance riêng. | Xe máy trong `img_005.jpg`, `img_026.jpg`. | Xe đạp/xích lô đạp chân ngoài phạm vi; tuk-tuk ba bánh có động cơ → tuk_tuk. |
 | `person` | Người thật hiện diện trực tiếp trong cảnh, gồm đi bộ, đứng, ngồi và người trên phương tiện, nếu đủ điều kiện kích thước/biên. | Hai người trên xe máy trong `img_026.jpg`. | Người in ở `img_018.jpg`, tượng, ma-nơ-canh, ảnh phản chiếu không gán như người thật. |
+| `bus` | Xe buýt/xe khách thật có thân chuyên chở nhiều hành khách, gồm xe đỗ và xe bị che còn đủ điều kiện gán. | Các xe buýt trong `img_037.jpg`. | Van cỡ nhỏ → van; hình in/mô hình không gán. |
+| `tuk_tuk` | Xe ba bánh có động cơ dạng auto-rickshaw/tuk-tuk, chở khách hoặc hàng; box bao thân, bánh, mái/khung cố định nhìn thấy. | Hai tuk-tuk chính trong `img_035.jpg`. | Xe máy hai bánh → motorcycle; xe đạp/xích lô đạp chân ngoài phạm vi; hàng rời không thuộc box xe. |
 | `ignore_region` | Vùng có instance thuộc phạm vi nhưng dưới ngưỡng kích thước hoặc cụm quá dày không tách được đáng tin cậy; đây là vùng, không phải loại vật. | Vùng xe/người xa khi từng vật cao <20 px. | Vật thật ngoài taxonomy, poster, tượng hoặc mọi vùng tối không tự là ignore. |
 
-**Vật ngoài taxonomy:** giữ sáu lớp trên, không thêm `rider`, `bus`, `tuk_tuk` hoặc lớp khác trong lượt v1.0. Loại có chủ đích xe buýt, tuk-tuk, xe đạp/xích lô khỏi bộ lớp phương tiện hiện tại; vẫn xét riêng người thật trên chúng. Không ép sang car/truck/motorcycle và không phủ ignore chỉ vì ngoài taxonomy. Nếu chưa biết vật thuộc hay ngoài phạm vi, ghi review/vấn đề cấp ảnh. Mở rộng lớp chỉ là đề xuất cho lần chốt phiên bản khác.
+**Phạm vi hiện tại:** tám lớp trong bảng, gồm bảy lớp đối tượng và `ignore_region`. Tên kỹ thuật `tuk_tuk` là tuk-tuk, dùng dấu gạch dưới theo schema. Xe đạp/xích lô đạp chân vẫn ngoài phạm vi phương tiện; người thật trên chúng xét riêng. Không thêm `rider`, không ép vật ngoài phạm vi sang lớp gần giống và không phủ ignore chỉ vì ngoài taxonomy. Chưa xác định được phạm vi/lớp thì review.
+
+**Màu CVAT:** car `#e6194b`, truck `#3cb44b`, van `#4363d8`, motorcycle `#f58231`, person `#911eb4`, ignore_region `#808080`, bus `#f032e6` (hồng tím), tuk_tuk `#9a6324` (nâu). Màu chỉ hỗ trợ quan sát, không phải tiêu chí phân lớp.
 
 ### 2.2. Thuộc tính bắt buộc của các lớp đối tượng
 
@@ -67,8 +71,12 @@ Các mốc 30/70 là quy ước của bản chung, lấy phương án định l�
 | R-08 | Phân lớp phương tiện theo kiểu thân như mục 2, không theo màu/chữ trên xe, hàng chở hoặc chỉ kích thước ảnh. Pickup có thùng riêng → truck dù có nắp; không thấy đủ dấu hiệu để phân biệt → review/vấn đề cấp ảnh, không tự thêm lớp. |
 | R-09 | Vật khác che và mép ảnh cắt là hai hiện tượng riêng. Box chặn tại mép ảnh; không kéo ra ngoài ảnh để hoàn thiện hình vật. Không dùng mã che thay cho cắt mép. |
 | R-10 | Mờ/tối là chất lượng ảnh, không tự là occlusion. Phóng to/đổi hiển thị để xem nếu cần, giữ nguyên dữ liệu gốc. Chọn biên vật hỗ trợ được; không bao bóng đổ, vệt phản sáng hoặc toàn bộ quầng nhòe. Còn bất định: review; không đủ căn cứ: vấn đề cấp ảnh. Dựa vào chi tiết quan sát được trên ảnh gốc khi quyết định biên. |
-| R-11 | Khung cảnh đông vẫn gán từng instance tách được và đạt ngưỡng; không gộp nhiều xe/người vào một box đối tượng. Chỉ dùng ignore theo R-05, có vùng và lý do. |
+| R-11 | Đông người không tự là ignore. Cá thể và biên phần nhìn thấy còn tách được, box cao >=20 px: gán riêng. Cụm chen kín không xác định được từng cá thể/biên đáng tin cậy: một ignore_region sát cụm, kể cả có đầu cao >=20 px. Không giữ đồng thời các box person của chính cụm đã chuyển ignore; người rõ đứng tách khỏi cụm vẫn gán riêng. Các cụm rời dùng vùng riêng, không quét cả ảnh. |
 | R-12 | Vật ngoài phạm vi loại theo mục 2; vật có thể thuộc phạm vi nhưng chưa xác định được đưa review. Hai tình huống khác nhau, phải ghi được lý do; không dùng một class “gần giống” để vượt validator. |
+
+**Phân biệt person và ignore:** xem ở độ phân giải ảnh gốc; zoom không đổi ngưỡng 20 px. Chỉ lộ đầu không tự là ignore nếu vẫn tách được cá thể và đạt điều kiện. Ngược lại, nhiều đầu cao >=20 px trong cụm lẫn nhau không bắt buộc tách từng người. Mức che 3 dành cho một instance còn tách được và che >70%, không thay cho nhóm/unknown. Thu hẹp hoặc chia vùng ignore để tránh phủ người/xe rõ ở tiền cảnh; không tránh được bằng rectangle thì ghi vùng và lý do cho review.
+
+Dùng đúng class `ignore_region` màu xám, không thêm lớp `ignore`/`crowd`. Đây là ignore của lab, không tự tương đương `iscrowd=1` trong COCO. Script lab xét vùng ignore riêng; không mặc định mọi bộ huấn luyện/đánh giá COCO hiểu class tùy biến này.
 
 Khi một chiếc xe che người phía sau, phần xe phía trước không tự bị occluded vì nó là vật che. Đánh giá từng instance riêng. Kính trong suốt không tự là vật che nếu chi tiết phía sau vẫn nhìn thấy; không chắc đường nhìn trực tiếp hay phản chiếu thì review.
 
@@ -85,9 +93,13 @@ Các hàng là phương án trong đặc tả nhóm được tổng hợp/kiểm
 | `img_018.jpg` | Chân dung in trên biển; xe thật phía dưới. | R-05, R-06 | Loại chân dung in; vẫn rà xe/người thật, kể cả bị hàng rào che. | Không bỏ cả ảnh chỉ vì có poster. |
 | `img_020.jpg` | Ảnh qua gương và gương của xe chủ. | R-06, R-07 | Không gán phương tiện trong phản chiếu hoặc phần gương ego. Vẫn giữ ảnh trong COCO dù không có đối tượng đủ điều kiện. | Phản chiếu không tạo thêm instance trực tiếp. |
 | `img_027.jpg` | Ca tượng/đài tưởng niệm hình pickup. | R-06 | Loại hình tượng trong ca này. Không suy rộng thành mọi xe trên bệ đều là tượng; chưa chắc vật thật hay mô hình thì review. | Quyết định dựa bản chất biểu diễn, không chỉ vị trí đỗ. |
-| `img_035.jpg` | Tuk-tuk chở hàng, cạnh các phương tiện/người khác. | R-04, R-12 | Tuk-tuk ngoài sáu lớp v1.0; không ép motorcycle/truck. Người thật và xe khác thuộc lớp vẫn xét riêng. | Giữ phạm vi nhất quán; hàng rời không phải phần xe. |
-| `img_037.jpg` | Pickup có nắp cao cạnh xe buýt. | R-08, R-12 | Pickup giữ truck khi thấy cabin/thùng riêng; bus ngoài phạm vi. Chưa chắc kết cấu → can_review. | Nắp cao không tự đổi pickup thành van. |
+| `img_035.jpg` | Tuk-tuk chở hàng, cạnh các phương tiện/người khác. | R-04, R-12 | Gán tuk_tuk riêng cho từng xe đủ điều kiện; không ép motorcycle/truck. Tách người thật; box xe không bao đống bao tải/hàng rời. | Giữ phạm vi nhất quán; hàng rời không phải phần xe. |
+| `img_037.jpg` | Pickup có nắp cao cạnh xe buýt. | R-08, R-12 | Pickup giữ truck khi thấy cabin/thùng riêng; từng xe buýt đủ điều kiện gán bus riêng. Chưa chắc kết cấu/biên → can_review. | Nắp cao không tự đổi pickup thành van. |
 | `img_007.jpg` | Kho tối, sàn phản sáng, xe cắt mép. | R-09, R-10 | Box bám thân/bánh/chi tiết xe thấy được; không bao bóng/phản sáng. Cắt mép thật → truncated=yes; tối không tự là che. | Tách ba loại nguyên nhân gây khó. |
+
+| `img_032.jpg` | Hàng người chờ xe buýt. | R-01, R-05, R-11 | Gán riêng người tách được; chỉ khoanh ignore cho phần cụm không tách được hoặc vật dưới 20 px. | Ảnh gốc 960×600 cho thấy phần lớn người có đầu, thân, chân phân biệt được và cao hơn 20 px; không phủ ignore toàn hàng. |
+
+`img_019.jpg` — đám đông sau hàng rào do Quý gửi cùng yêu cầu: theo hướng dẫn coach được báo lại, khoanh ignore sát cụm người chen chúc khó tách; người/xe tiền cảnh tách khỏi cụm vẫn xét riêng. Đây là ca hướng dẫn, không phải xác nhận annotation đã sửa.
 
 ### 4.2. Tổng hợp khác biệt và lựa chọn kỹ thuật
 
@@ -95,13 +107,13 @@ P = bản Phong; K = bản Khoa; Q = bản nghiên cứu của Quý. Q và K cò
 
 | Vấn đề | Nội dung đầu vào | Lựa chọn bản chung và lý do |
 |---|---|---|
-| Phạm vi lớp | P: tên lớp cơ bản; K: định nghĩa kiểu thân và loại phương tiện ngoài lớp; Q: giữ schema, còn điểm cần bổ sung. | Giữ sáu lớp, dùng định nghĩa kiểu thân K và ghi ngoài phạm vi rõ. Tránh đổi lớp tùy người. |
+| Phạm vi lớp | P: tên lớp cơ bản; K: định nghĩa kiểu thân và loại phương tiện ngoài lớp; Q: giữ schema, còn điểm cần bổ sung. | Dùng định nghĩa kiểu thân K; bản hoàn thiện này có tám lớp, bổ sung bus/tuk_tuk theo hướng dẫn coach do Quý báo lại. Không ép vào lớp gần giống. |
 | Box khuất/chồng | P: không suy đoán, box độc lập; K/Q: bao các phần nhìn thấy, chấp nhận box chồng. | R-01/R-02 giữ điểm chung, làm rõ box chữ nhật có thể chứa nền. |
 | Người trên xe | P: một vật một box nhưng chưa quy định số; K/Q: tách người và xe. | R-03 quy định số instance có điều kiện, không gộp hoặc thêm rider. |
 | Che khuất | P/v0: mức chưa có ngưỡng; K: 30/70, mức 3 che nặng; Q: 50%, mức 3 unknown. | Chọn K 30/70 để đủ bốn mức định lượng. Không trộn hai nghĩa của mức 3; bất định dùng review/vấn đề cấp ảnh. |
 | Vật nhỏ | P: còn nhận ra thì gán, chưa có mốc; K/Q: 20 px theo lab. | R-05 giữ ngưỡng bắt buộc của lab, làm rõ đúng 20 px được xét gán. |
 | Vật thật/hình in | P: nhấn mạnh vật thật, ảnh đen trắng vẫn gán; K/Q: thêm tượng/phản chiếu/ego. | R-06/R-07 kết hợp, không lấy màu hoặc riêng chiếc bệ làm bằng chứng loại. |
-| Vật ngoài lớp | K: bus/tuk-tuk không thuộc v0; Q: cần chốt phạm vi. | Giữ ngoài v1.0, vẫn rà person trên chúng; không biến vật ngoài taxonomy thành ignore. |
+| Vật ngoài lớp | K: bus/tuk-tuk không thuộc v0; Q: cần chốt phạm vi. | Bổ sung bus/tuk_tuk vào phạm vi hiện tại; xe đạp/xích lô đạp chân vẫn ngoài phạm vi. Người thật xét riêng; vật ngoài lớp không tự là ignore. |
 | Không đặt được box | P: can_review cho ca mơ hồ; K/Q: phân biệt box mơ hồ với vấn đề cấp ảnh. | Bổ sung đường ghi image_issues; không ép lớp/mã hoặc tạo box khi thiếu bằng chứng. |
 | Mờ/tối | P: chất lượng ảnh không loại vật thật; Q: tách khỏi occlusion, bóng và quầng nhòe. | R-10 giữ vật có bằng chứng, chuyển ca không chắc review, không dựng chi tiết giả. |
 | QC | P: rà bỏ sót/thừa/tách vật; K/Q: thêm mẫu số, IAA, duyệt toàn lô. | Kết hợp checklist với ngưỡng/script chính thức, không tự tạo kết quả. |
@@ -110,13 +122,13 @@ P = bản Phong; K = bản Khoa; Q = bản nghiên cứu của Quý. Q và K cò
 
 ### 5.1. Cổng bắt đầu Pha 3
 
-1. Cả ba người đọc mục 2–4 và xác nhận cùng hiểu phạm vi sáu lớp, visible bbox, người/xe và mã che 30/70. Không ghi thay xác nhận hoặc kết quả thử của người chưa thực hiện.
+1. Cả ba người đọc mục 2–4 và xác nhận cùng hiểu phạm vi tám lớp, visible bbox, người/xe và mã che 30/70. Không ghi thay xác nhận hoặc kết quả thử của người chưa thực hiện.
 2. Cùng giải thích R-03 trên img_005 và img_026 trước lượt độc lập. Đây là kiểm hiểu quy tắc ở Pha 2; sau khi khóa lượt gán, không xem/trao đổi nhãn của nhau.
 3. Ghi mốc chốt/commit vào ghi chú nhóm khi đã thật sự xác nhận. Giữ v1.0 và taxonomy cố định cho cả lượt. Không có bằng chứng nhóm đã chốt thì chưa tuyên bố hoàn thành Pha 2.
 4. `python scripts/make_cvat_labels.py` → [labels_generated.json](../../cvat/labels_generated.json). Cấu hình này sinh từ taxonomy v1.0, không sửa tay JSON CVAT.
 5. Tạo Project CVAT dùng bộ lớp trên; mỗi người tạo Task riêng, tải đúng `work/<Ten_MSHV>/images/`. Phong 27, Khoa 27, Quý 26 ảnh, theo [assignment.csv](../qc/assignment.csv). Giữ frame không có vật; không upload cả 40 ảnh vào mỗi Task gán độc lập.
 
-Cả ba thành viên đã xác nhận sử dụng v1.0; nhóm có thể bắt đầu lượt gán độc lập. Tiến độ nhãn được cập nhật theo file COCO thực tế. Task đã có box theo quy tắc khác cần lưu bản cũ riêng, đối chiếu khác biệt và rà theo v1.0.
+Xác nhận cũ chỉ áp dụng nội dung tại commit đã ghi, không tự áp dụng cho bổ sung tám lớp. Cả nhóm cần xác nhận bản cập nhật và ghi commit khóa lại. Nhãn theo bản sáu lớp giữ riêng; trước khi đo IAA theo bản cập nhật, mỗi thành viên rà lại toàn bộ ảnh được giao, thêm vật thuộc lớp mới và áp dụng cùng quy tắc ignore, rồi xuất lại COCO. Không trộn các bản khác phạm vi trong cùng lượt IAA. Nếu nhóm đã khóa/nộp xong lượt độc lập và chuyển Pha 4–5, giữ lượt đó làm mốc và xử lý thay đổi theo calibration v1.1 trong GUIDE.md, không viết lại dữ liệu ban đầu.
 
 ### 5.2. Tự kiểm và xuất nhãn
 
@@ -148,6 +160,9 @@ Hold khi thiếu bằng chứng, chưa chốt quy tắc hoặc có vấn đề d
 | Phiên bản | Thay đổi | Nguồn/lý do |
 |---|---|---|
 | v0 | Bản khởi đầu: lớp ngắn, “ôm sát”, mức che chưa định lượng. | Starter của lab. |
-| v1.0 | Định nghĩa sáu lớp, R-01–R-12, che 30/70, tách người/xe, vật nhỏ, ngoài taxonomy và đường review; đồng bộ taxonomy/nhãn CVAT. | Tổng hợp ba bản cá nhân tại 1090cd3d7c917d8c2a079b1a65e617d2e97a0194, giải quyết khác biệt ở mục 4.2; không thay ngưỡng lab. |
+| v1.0 | Bản đầu sáu lớp, R-01–R-12, che 30/70; bổ sung ngày 2026-11-16 thành tám lớp với bus/tuk_tuk, màu và tiêu chí person/ignore. Giữ ngưỡng lab; cần đồng bộ và khóa lại bản cập nhật. | Tổng hợp ba bản cá nhân tại 1090cd3d7c917d8c2a079b1a65e617d2e97a0194, giải quyết khác biệt ở mục 4.2; không thay ngưỡng lab. |
 
 Ngày 2026-11-16, người điều phối NguyenCongQuy xác nhận cả TranPhamHoangPhong_2A202603198, PhungDanhKhoa_2A202603206 và NguyenCongQuy_2A202603149 đã đồng ý sử dụng guideline chung v1.0 tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Bảng ghi nhận nằm trong TEAM.md. Đây là xác nhận sử dụng quy tắc; số đo IAA và QC được ghi sau khi thực hiện.
+
+
+Nguồn bổ sung quy tắc nhóm: [Cityscapes — Class Definitions](https://www.cityscapes-dataset.com/dataset-overview/) dùng nhãn nhóm khi biên các instance không rõ. Ánh xạ sang ignore_region là quy ước lab theo coach; không tuyên bố hai bộ dữ liệu có cùng schema. [Định dạng COCO](https://github.com/cocodataset/cocodataset.github.io/blob/master/dataset/format-data.htm) có trường iscrowd riêng.
