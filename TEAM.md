@@ -49,7 +49,9 @@ Theo yêu cầu người sở hữu repo, nhóm dùng `Ten_MSHV` trong tên file
 ## Trạng thái và kết quả cuối bài
 
 - Đã hoàn thành: khai báo thành viên, sinh bảng phân công và danh sách ảnh.
-- Guideline cá nhân / v1.0: chưa tập hợp; từng thành viên tự thực hiện theo trình tự trên.
+- Guideline cá nhân: đã tập hợp ba file trên main; Khoa và Quý còn ghi trạng thái nháp/đề xuất, không tự coi là đã xác nhận hết nội dung.
+- Guideline chung: [v1.0](submission/guidelines/guideline_v1.0_agreed.md) đã tổng hợp, taxonomy/CVAT đã đồng bộ; cần ba người đọc/thống nhất trước khi vẽ, chưa ghi nhận xác nhận thực tế.
+- Mốc khóa v1.0 (ngày/commit và xác nhận thực tế của nhóm): chưa ghi nhận.
 - Lượt gán hoàn tất / được giao: chưa ghi nhận / 80.
 - IAA trước calibration (kèm mẫu số): chưa đo.
 - Số ảnh phải calibration: chưa xác định / 40.
