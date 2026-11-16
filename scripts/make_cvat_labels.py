@@ -31,7 +31,8 @@ def main() -> None:
                     "mutable": False,
                     "input_type": a["type"],
                     "default_value": str(a.get("default", "")),
-                    "values": [str(v) for v in a.get("values", [])] if a["type"] == "select" else [],
+                    # CVAT checkbox values contain its initial boolean, not an empty list.
+                    "values": [str(v) for v in a.get("values", [])] if a["type"] == "select" else [a["default"]],
                 })
         labels.append({"name": name, "color": "#808080" if name == tax.ignore else COLORS[i % len(COLORS)],
                        "attributes": attrs})

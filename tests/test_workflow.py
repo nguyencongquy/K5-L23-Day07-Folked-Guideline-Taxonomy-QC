@@ -94,6 +94,29 @@ class WorkflowTest(unittest.TestCase):
             rows = [rows[1], *errors]
         self.write_csv(review, ["image", "object_id", "error_type", "reviewer", "rule_id", "region", "note"], rows)
 
+    def test_cvat_checkbox_export_has_one_boolean_default_value(self):
+        taxonomy = json.loads(self.tax.read_text())
+        checkbox = next(attr for attr in taxonomy["attributes"] if attr["name"] == "can_review")
+        for default in ("false", "true"):
+            checkbox["default"] = default
+            self.write_json(self.tax, taxonomy)
+            for args, filename in (((), "labels_generated.json"), (("--final",), "labels_final.json")):
+                with self.subTest(default=default, filename=filename):
+                    self.run_script("make_cvat_labels", *args)
+                    labels = json.loads((self.root / "cvat" / filename).read_text())
+                    self.assertEqual({label["name"] for label in labels}, {item["name"] for item in taxonomy["classes"]})
+                    for label in labels:
+                        if label["name"] == taxonomy["ignore_class"]:
+                            self.assertEqual(label["attributes"], [])
+                            continue
+                        attrs = {attr["name"]: attr for attr in label["attributes"]}
+                        self.assertEqual(attrs["can_review"]["input_type"], "checkbox")
+                        self.assertEqual(attrs["can_review"]["values"], [default])
+                        self.assertEqual(attrs["can_review"]["default_value"], default)
+                        for attr in taxonomy["attributes"]:
+                            if attr["type"] == "select":
+                                self.assertEqual(attrs[attr["name"]]["values"], attr["values"])
+
     def test_name_mshv_assignment_supports_coco_comparison(self):
         members = ["MemberOne_2A202600001", "MemberTwo_2A202600002", "MemberThree_2A202600003"]
         self.run_script("split_assign", "--members", ",".join(members), "--copy-images")
