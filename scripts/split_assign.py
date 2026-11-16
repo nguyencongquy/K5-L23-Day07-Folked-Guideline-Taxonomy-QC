@@ -19,7 +19,7 @@ from common import IMAGES_DIR, MEMBER_RE, ROOT, QC_DIR, WORK_DIR, die, list_imag
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--members", required=True, help="Danh sách mã hoặc Ten_MSHV, ngăn cách bằng dấu phẩy.")
+    ap.add_argument("--members", required=True, help="Danh sách mã thành viên, ngăn cách bằng dấu phẩy.")
     ap.add_argument("--overlap", type=int, default=None,
                     help="Số người gán mỗi ảnh (K). Mặc định 2; nhóm đúng 5 người thì mặc định 3.")
     ap.add_argument("--seed", type=int, default=42, help="Seed ngẫu nhiên (mặc định 42; cả nhóm dùng chung).")
@@ -29,7 +29,7 @@ def main() -> None:
 
     members = [m.strip() for m in args.members.split(",") if m.strip()]
     if not all(MEMBER_RE.fullmatch(member) for member in members):
-        die("Mỗi thành viên dùng mã ba chữ số hoặc Ten_MSHV, ví dụ NguyenCongQuy_2A202603149.")
+        die("Mỗi thành viên dùng mã ba chữ số, ví dụ 101.")
     if len(set(members)) != len(members):
         die("Có mã thành viên bị trùng trong --members: " + str([m for m, c in Counter(members).items() if c > 1]))
     if len(members) < 2:

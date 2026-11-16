@@ -1,6 +1,8 @@
 # Day 07 Lab — Guideline, Taxonomy & QC
 
-**Nhóm 3 thành viên:** [Tên, mã học viên và việc cần làm](TEAM.md) · [Danh sách ảnh từng người](submission/qc/assignments/) · [Bảng chia chung](submission/qc/assignment.csv)
+**Nhóm 3 thành viên — 101 / 102 / 103:** [Mã thành viên và việc cần làm](TEAM.md) · [Danh sách ảnh từng người](submission/qc/assignments/) · [Bảng chia chung](submission/qc/assignment.csv)
+
+**Phân công hiện tại:** 101 có 27 ảnh, 102 có 27 ảnh, 103 có 26 ảnh. Lấy đúng danh sách tại `submission/qc/assignments/<ma>.txt`; không chạy chia ảnh lại. File COCO lần lượt là `101.json`, `102.json`, `103.json`.
 
 Tên file guideline của nhóm theo yêu cầu người sở hữu repo: `guideline_v1.0.md`; script và liên kết nhóm đã đồng bộ. Tài liệu đề gốc vẫn giữ tên `guideline_v1.0_agreed.md`.
 

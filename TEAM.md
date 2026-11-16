@@ -1,78 +1,48 @@
 # Day 07 — Thành viên và phân công
 
-Nhóm có 3 thành viên. Phạm vi chung: 40 ảnh trong `data/images/`.
+Nhóm 3 thành viên, dùng mã `101`, `102`, `103` trong file và Task. Bảng đối chiếu họ tên/MSHV được giữ riêng ở kênh nhóm/coach, không kèm gói nộp.
 
-## Thành viên
+## Mã và sản phẩm từng người
 
-| Họ tên dùng trong repo | Mã số học viên | Định danh dùng trong file | Số ảnh gán độc lập | Danh sách ảnh |
-|---|---|---|---:|---|
-| TranPhamHoangPhong | 2A202603198 | `TranPhamHoangPhong_2A202603198` | 27 | [Mở danh sách](submission/qc/assignments/TranPhamHoangPhong_2A202603198.txt) |
-| PhungDanhKhoa | 2A202603206 | `PhungDanhKhoa_2A202603206` | 27 | [Mở danh sách](submission/qc/assignments/PhungDanhKhoa_2A202603206.txt) |
-| NguyenCongQuy | 2A202603149 | `NguyenCongQuy_2A202603149` | 26 | [Mở danh sách](submission/qc/assignments/NguyenCongQuy_2A202603149.txt) |
+| Mã | Số ảnh | Danh sách ảnh | Guideline cá nhân | COCO độc lập | Ghi chú cá nhân |
+|---|---:|---|---|---|---|
+| `101` | 27 | [101.txt](submission/qc/assignments/101.txt) | [guideline_101.md](submission/guidelines/individual/guideline_101.md) | `submission/labels/101.json` | `submission/individual_notes/101.md` |
+| `102` | 27 | [102.txt](submission/qc/assignments/102.txt) | [guideline_102.md](submission/guidelines/individual/guideline_102.md) | `submission/labels/102.json` | `submission/individual_notes/102.md` |
+| `103` | 26 | [103.txt](submission/qc/assignments/103.txt) | [guideline_103.md](submission/guidelines/individual/guideline_103.md) | `submission/labels/103.json` | `submission/individual_notes/103.md` |
 
-- Người điều phối: NguyenCongQuy_2A202603149.
-- Người review bản cuối: nhóm sẽ chốt trước vòng QC; ưu tiên người khác người sửa.
-- Bảng chia chung: [assignment.csv](submission/qc/assignment.csv).
-- Cách chia: seed `42`, mỗi ảnh 2 người gán độc lập, tổng 80 lượt; chênh lệch tải tối đa 1 ảnh.
+- Người điều phối: `103`.
+- Người review bản cuối: nhóm chốt trước vòng QC; ưu tiên người khác người sửa.
+- Bảng chung: [assignment.csv](submission/qc/assignment.csv), đủ 40 ảnh, mỗi ảnh 2 người gán, tổng 80 lượt.
+- Ngày 2026-11-17: chuyển định danh cũ sang mã tại chỗ. Danh sách ảnh của từng người được giữ nguyên, không chia lại. Số ảnh vẫn 27/27/26.
 
-## Việc mỗi thành viên cần làm
+## Việc cần làm tiếp
 
-1. Xem toàn bộ 40 ảnh; tự viết guideline cá nhân, chưa xem bản của nhau. Gửi riêng theo kênh nhóm/coach; chỉ tập hợp khi cả 3 người đã nộp.
-2. Cùng họp chốt `submission/guidelines/guideline_v1.0.md`, cập nhật `submission/taxonomy.json`, sinh bộ nhãn CVAT rồi khóa v1.0.
-3. Mỗi người tạo Task CVAT riêng, upload đúng ảnh trong `work/<định-danh>/images/` và gán độc lập theo v1.0. Ca chưa rõ: dùng `can_review` hoặc ghi vấn đề cấp ảnh theo GUIDE.md.
-4. Export COCO 1.0; gửi riêng. Chỉ tập hợp nhãn khi mọi người đã nộp, sau đó chạy IAA, calibration và QC.
+1. Cả ba dùng cùng [guideline v1.0](submission/guidelines/guideline_v1.0.md), [taxonomy tám lớp](submission/taxonomy.json) và cấu hình nhãn CVAT tương ứng.
+2. Save và export COCO 1.0, tắt Save images. Lấy JSON trong thư mục annotations của ZIP, đặt đúng mã ở bảng trên. Giữ ảnh không có box.
+3. Chạy `python scripts/validate_labels.py submission/labels/101.json` (hoặc `102.json`, `103.json`). Tất cả đã hoàn thành lượt gán theo xác nhận của người điều phối; chỉ tập hợp sau khi cả ba khóa bản độc lập.
+4. Khi đủ ba file: `validate_labels.py --all`, `qc_compare.py`, `viz_disagreement.py --images flagged`; cả nhóm chốt calibration rồi QC và bàn giao theo GUIDE.md/SUBMISSION.md.
 
-| Thành viên | Guideline cá nhân | COCO độc lập | Ghi chú cá nhân |
-|---|---|---|---|
-| TranPhamHoangPhong | `submission/guidelines/individual/guideline_TranPhamHoangPhong_2A202603198.md` | `submission/labels/TranPhamHoangPhong_2A202603198.json` | `submission/individual_notes/TranPhamHoangPhong_2A202603198.md` |
-| PhungDanhKhoa | `submission/guidelines/individual/guideline_PhungDanhKhoa_2A202603206.md` | `submission/labels/PhungDanhKhoa_2A202603206.json` | `submission/individual_notes/PhungDanhKhoa_2A202603206.md` |
-| NguyenCongQuy | `submission/guidelines/individual/guideline_NguyenCongQuy_2A202603149.md` | `submission/labels/NguyenCongQuy_2A202603149.json` | `submission/individual_notes/NguyenCongQuy_2A202603149.md` |
+Các đường dẫn COCO/ghi chú trong bảng là sản phẩm cần tập hợp, không phải bằng chứng file đã có đủ hoặc đã qua QC.
 
-Các đường dẫn trên là sản phẩm phải tự hoàn thành, chưa phải bằng chứng đã làm xong. Không đưa bản nháp độc lập lên nhánh chung khi thành viên khác chưa nộp.
-
-## Chạy lại phân công
-
-Từ thư mục gốc repo:
+## Lấy bản sửa và kiểm tra lỗi 101.json
 
 ```bash
-python scripts/split_assign.py --members TranPhamHoangPhong_2A202603198,PhungDanhKhoa_2A202603206,NguyenCongQuy_2A202603149 --seed 42 --copy-images
+git pull --ff-only origin main
+python scripts/validate_labels.py submission/labels/101.json
 ```
 
-Không đổi seed hoặc chia lại ảnh sau khi bắt đầu gán nhãn. `work/` chỉ dùng cục bộ, không commit.
+Bảng phân công hiện nhận mã `101`, `102`, `103`. Không đặt tên COCO bằng định danh cũ. Class kỹ thuật là `bus`, `tuk_tuk`; nếu COCO vẫn ghi `Tuk-tuk`/`tuk-tuk`, đổi tên nhãn hiện có trong CVAT, Save và export lại.
 
-## Tùy chỉnh định danh của nhóm
+**Không chạy lại `split_assign.py` sau khi đổi mã.** Thuật toán sắp xếp danh sách thành viên trước khi chia: cùng seed nhưng đổi bộ tên sang mã có thể phân lại ảnh cho người khác. Chỉ dùng bảng và ba danh sách đã được commit. Nếu cần ảnh gốc, lấy đúng tên trong danh sách từ `data/images/`; không xóa ảnh đang bị báo thừa trước khi kiểm mã.
 
-Theo yêu cầu người sở hữu repo, nhóm dùng `Ten_MSHV` trong tên file và bảng chia. `scripts/common.py` và `scripts/split_assign.py` đã được cập nhật để hỗ trợ định dạng này, đồng thời vẫn nhận mã ba chữ số của starter. Thuật toán chia ảnh và các ngưỡng QC không thay đổi.
+## Trạng thái và bằng chứng
 
-Nhóm sử dụng họ tên và mã số học viên để đối chiếu người thực hiện với từng sản phẩm khi chấm bài. Định danh `Ten_MSHV` được áp dụng thống nhất trong bảng chia, danh sách ảnh, guideline, COCO và ghi chú cá nhân.
+- Guideline cá nhân: đã tập hợp ba bản; lần đổi mã chỉ sửa định danh/đường dẫn, giữ quyết định annotation và lịch sử commit.
+- Mốc xác nhận bản sáu lớp: cả ba đã đồng ý theo xác nhận người điều phối ngày 2026-11-16 tại commit `3e651e6a28645eec131b765bdea956c58c11f516`.
+- Bổ sung tám lớp: theo hướng dẫn coach do `103` báo lại, thêm bus/tuk_tuk và làm rõ ignore. Taxonomy và cấu hình đã cập nhật; chưa ghi nhận xác nhận lại đầy đủ của nhóm cho bản bổ sung.
+- CVAT local của `103`: Project #2 có tám lớp; job #16 đã lưu 471 box trên đủ 26 ảnh, 69 box có can_review. Chưa xác nhận nội dung export của `101`/`102`.
+- Tiến độ gán: người điều phối báo cả ba hoàn thành; chưa kiểm đủ 80 lượt từ ba bản COCO.
+- IAA: chưa đo. Calibration: chưa thực hiện. QC cuối: chưa thực hiện. Chưa có kết luận Release.
+- Commit chốt bài: điền ở kênh nộp sau khi kiểm tra xong.
 
-## Trạng thái và kết quả cuối bài
-
-- Đã hoàn thành: khai báo thành viên, sinh bảng phân công và danh sách ảnh.
-- Guideline cá nhân: đã tập hợp ba file trên main. NguyenCongQuy đã xem đủ 40 ảnh và hoàn thiện bản cá nhân v1.0 theo quy tắc nhóm đã chốt ngày 2026-11-16.
-- Guideline chung: [v1.0](submission/guidelines/guideline_v1.0.md) bản sáu lớp đã có ba xác nhận tại commit dưới. Bản bổ sung tám lớp ngày 2026-11-16 cập nhật bus/tuk_tuk và ignore theo yêu cầu Quý; taxonomy và file cấu hình CVAT đã cập nhật. Project CVAT local #2 của Quý đã đồng bộ tám lớp; job #16 đã lưu 471 box trên đủ 26 ảnh. Chưa xác nhận cấu hình Task của Phong/Khoa. Cần ghi nhận xác nhận và commit khóa lại của cả nhóm; không coi xác nhận cũ là xác nhận bổ sung mới.
-- Mốc khóa v1.0: 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516`. Phạm vi khóa gồm guideline chung, taxonomy và cấu hình nhãn CVAT tại commit này.
-- Lượt gán hoàn tất / được giao: chưa ghi nhận / 80.
-- IAA trước calibration (kèm mẫu số): chưa đo.
-- Số ảnh phải calibration: chưa xác định / 40.
-- Vòng QC và số ảnh đã duyệt / cả lô: chưa thực hiện.
-- Tỉ lệ lỗi theo ảnh / đối tượng: chưa đo.
-- Quyết định Release / Hold / Rework: chưa đánh giá bàn giao.
-- Commit chốt bài: điền ở kênh nộp sau khi hoàn thành.
-
-## Xác nhận khóa guideline v1.0
-
-Mỗi thành viên đọc guideline chung, taxonomy và phản hồi trong kênh nhóm. Phản hồi ghi rõ phiên bản/commit được đồng ý; nếu còn bất đồng, ghi Rule ID và phương án sửa để nhóm chốt trước lượt gán độc lập.
-
-| Thành viên | Xác nhận phạm vi đã xem | Xác nhận áp dụng guideline v1.0 | Ngày và commit khóa |
-|---|---|---|---|
-| TranPhamHoangPhong_2A202603198 | Chưa ghi nhận trong bảng này | Đồng ý sử dụng, theo xác nhận của người điều phối | 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516` |
-| PhungDanhKhoa_2A202603206 | Chưa ghi nhận trong bảng này | Đồng ý sử dụng, theo xác nhận của người điều phối | 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516` |
-| NguyenCongQuy_2A202603149 | Đã xem đủ 40 ảnh, theo xác nhận của thành viên | Đồng ý sử dụng, theo xác nhận của người điều phối | 2026-11-16 / `3e651e6a28645eec131b765bdea956c58c11f516` |
-
-Các điểm cần cùng hiểu gồm sáu lớp, box phần nhìn thấy, tách người và xe, mức che 0/30/70, cắt mép, ngưỡng chiều cao 20 px và cách dùng can_review/ignore_region. Đã ghi nhận đủ ba xác nhận qua người điều phối ngày 2026-11-16; cả nhóm dùng bản tại commit khóa trong lượt gán độc lập.
-
-
-## Bổ sung v1.0 ngày 2026-11-16
-
-Theo yêu cầu NguyenCongQuy, tích hợp hướng dẫn coach được báo lại vào chính guideline v1.0: thêm bus/tuk_tuk, màu nhãn và phân biệt đám đông khó tách với hàng người còn tách được. Mốc xác nhận sáu lớp phía trên được giữ làm lịch sử. Chưa ghi nhận xác nhận mới của Phong/Khoa, commit khóa lại hoặc việc rà lại nhãn theo tám lớp. Trước khi so IAA theo bản cập nhật, đồng bộ cả ba annotator và rà toàn bộ ảnh được giao; không trộn nhãn sáu/tám lớp. Nếu đã chuyển Pha 4–5, giữ dữ liệu lượt độc lập và dùng quy trình calibration v1.1 của đề.
+Lần chuẩn hóa mã không thay ngưỡng QC, tên class, thuộc tính hoặc tọa độ annotation. Không dùng số lượng file hoặc trạng thái Save/Finish để thay kết quả IAA/QC.

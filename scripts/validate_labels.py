@@ -15,10 +15,15 @@ def main() -> None:
     if not paths:
         parser.error("Truyền file COCO hoặc dùng --all.")
     assignment = require_assignment()
+    members = {member for assigned in assignment.values() for member in assigned}
     tax = load_taxonomy()
     for path in paths:
         if path.suffix != ".json" or not MEMBER_RE.fullmatch(path.stem):
             die("Đặt file theo mã thành viên, ví dụ 101.json.")
+        if path.stem not in members:
+            die(f"{rel(path.resolve())}: mã thành viên '{path.stem}' không có trong assignment.csv. "
+                f"Các mã được giao ảnh: {', '.join(sorted(members))}. "
+                "Kiểm tra tên file và cập nhật bảng phân công chung; không xóa ảnh vì lỗi mã.")
         labels = require_valid_labels(path, tax)
         expected = {image for image, members in assignment.items() if labels.member in members}
         if not expected or expected != labels.images.keys():

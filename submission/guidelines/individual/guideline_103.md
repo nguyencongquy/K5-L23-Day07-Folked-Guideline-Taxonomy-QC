@@ -1,4 +1,4 @@
-# Guideline cá nhân — NguyenCongQuy_2A202603149
+# Guideline cá nhân — 103
 
 - Phiên bản v1.0, hoàn thiện ngày 2026-11-16 sau khi nhóm chốt quy tắc chung.
 - Đã xem đủ 40 ảnh. Lượt gán độc lập được phân công 26 ảnh.
@@ -72,7 +72,7 @@ Mã quy tắc dưới đây khớp bản chung để tiện đối chiếu khi r
 ## 5. QC và phiên bản
 
 - Trước khi xuất, rà bỏ sót, box trùng/gộp, lớp, độ sát biên và ba thuộc tính. Các ca mơ hồ được nhóm chốt trong calibration.
-- Xuất COCO 1.0 và kiểm đủ 26 ảnh bằng `python scripts/validate_labels.py submission/labels/NguyenCongQuy_2A202603149.json`.
+- Xuất COCO 1.0 và kiểm đủ 26 ảnh bằng `python scripts/validate_labels.py submission/labels/103.json`.
 - Ghép IAA dùng IoU từ 0.5. Ngưỡng cặp box cao trung bình từ 50 px là 0.85, thấp hơn là 0.70. Mục tiêu IoU trung bình từ 0.85 và đồng thuận lớp từ 95%, báo kèm số cặp ghép được.
 - QC duyệt đủ 40 ảnh và báo tỷ lệ lỗi theo ảnh/đối tượng kèm tử số, mẫu số. Ngưỡng ảnh lỗi là 2%; một ảnh lỗi trên 40 tương đương 2.5%.
 - Reviewer xác nhận Hold khi thiếu bằng chứng, Rework khi vượt ngưỡng hoặc có lỗi lặp, Release khi đủ điều kiện. Số liệu được điền sau khi thực hiện.

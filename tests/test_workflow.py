@@ -134,6 +134,15 @@ class WorkflowTest(unittest.TestCase):
         self.assertTrue((self.qc / "iaa_summary.json").exists())
         self.run_script("split_assign", "--members", "../Member_2A202600001,102", success=False)
 
+    def test_validate_unknown_member_reports_assignment_mismatch(self):
+        self.assignments("101|102")
+        labels = self.sub / "labels" / "103.json"
+        self.coco(labels)
+        output = self.run_script("validate_labels", str(labels), success=False)
+        self.assertIn("mã thành viên '103' không có trong assignment.csv", output)
+        self.assertIn("101, 102", output)
+        self.assertNotIn("ảnh thừa", output)
+
     def test_compare_rejects_missing_assigned_image_and_annotator(self):
         self.assignments("101|102|103")
         for member in ("101", "102"):

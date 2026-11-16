@@ -4,7 +4,7 @@
 - Phạm vi: 40 ảnh `data/images/img_001.jpg`–`img_040.jpg`; bounding box 2D; CVAT; COCO 1.0.
 - Nguồn: ba bản cá nhân được giữ nguyên trong [individual/](individual/), đối chiếu tại commit 1090cd3d7c917d8c2a079b1a65e617d2e97a0194.
 - Bản chung tổng hợp các phương án trong ba guideline cá nhân để nhóm thảo luận và xác nhận.
-- Trạng thái: bản sáu lớp trước đây đã được cả ba xác nhận tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Ngày 2026-11-16, NguyenCongQuy yêu cầu hoàn thiện lại v1.0 theo hướng dẫn coach được báo lại: thêm bus/tuk-tuk và làm rõ ignore đám đông. Bản hiện tại có tám lớp; cần cả nhóm đồng bộ và ghi mốc khóa lại trước lượt gán theo bản cập nhật. Chưa ghi nhận xác nhận mới của Phong/Khoa hoặc việc đã rà lại nhãn. Lịch sử Git giữ bản trước; đây không phải kết quả calibration v1.1.
+- Trạng thái: bản sáu lớp trước đây đã được cả ba xác nhận tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Ngày 2026-11-16, 103 yêu cầu hoàn thiện lại v1.0 theo hướng dẫn coach được báo lại: thêm bus/tuk-tuk và làm rõ ignore đám đông. Bản hiện tại có tám lớp; cần cả nhóm đồng bộ và ghi mốc khóa lại trước lượt gán theo bản cập nhật. Chưa ghi nhận xác nhận mới của 101/102 hoặc việc đã rà lại nhãn. Lịch sử Git giữ bản trước; đây không phải kết quả calibration v1.1.
 - Tài liệu có thẩm quyền về quy trình: [GUIDE.md](../../GUIDE.md), [RULES.md](../../RULES.md), [RUBRIC.md](../../RUBRIC.md).
 
 ## 1. Mục tiêu và phạm vi
@@ -49,7 +49,7 @@ Gọi r là tỷ lệ diện tích hình chiếu của vật bị **vật khác 
 | `2` | 30% < r <= 70% | Che vừa/nhiều. Đúng 70% thuộc mức 2. |
 | `3` | r > 70%, còn phần nhìn thấy đủ điều kiện gán | Che nặng; KHÔNG có nghĩa “không biết”. |
 
-Các mốc 30/70 là quy ước của bản chung, lấy phương án định lượng từ bản Khoa; không tuyên bố đây là chuẩn quốc tế. Nếu ước lượng được nhưng sát ngưỡng, chọn mức có căn cứ nhất, bật `can_review` và ghi lý do. Nếu hoàn toàn không đủ căn cứ chọn mức hoặc không đặt được box đáng tin cậy, ghi vấn đề cấp ảnh để review; không ép `3` thành mã unknown hay tạo dữ kiện giả. Vật không còn phần nhìn thấy không được gán chỉ nhờ suy đoán.
+Các mốc 30/70 là quy ước của bản chung, lấy phương án định lượng từ bản 102; không tuyên bố đây là chuẩn quốc tế. Nếu ước lượng được nhưng sát ngưỡng, chọn mức có căn cứ nhất, bật `can_review` và ghi lý do. Nếu hoàn toàn không đủ căn cứ chọn mức hoặc không đặt được box đáng tin cậy, ghi vấn đề cấp ảnh để review; không ép `3` thành mã unknown hay tạo dữ kiện giả. Vật không còn phần nhìn thấy không được gán chỉ nhờ suy đoán.
 
 **`truncated`:** `yes` khi mép ảnh thực sự cắt qua vật; `no` khi vật nằm trọn trong ảnh, kể cả vừa chạm mép. Vừa bị che vừa bị cắt: điền cả hai trạng thái độc lập.
 
@@ -99,15 +99,15 @@ Các hàng là phương án trong đặc tả nhóm được tổng hợp/kiểm
 
 | `img_032.jpg` | Hàng người chờ xe buýt. | R-01, R-05, R-11 | Gán riêng người tách được; chỉ khoanh ignore cho phần cụm không tách được hoặc vật dưới 20 px. | Ảnh gốc 960×600 cho thấy phần lớn người có đầu, thân, chân phân biệt được và cao hơn 20 px; không phủ ignore toàn hàng. |
 
-`img_019.jpg` — đám đông sau hàng rào do Quý gửi cùng yêu cầu: theo hướng dẫn coach được báo lại, khoanh ignore sát cụm người chen chúc khó tách; người/xe tiền cảnh tách khỏi cụm vẫn xét riêng. Đây là ca hướng dẫn, không phải xác nhận annotation đã sửa.
+`img_019.jpg` — đám đông sau hàng rào do 103 gửi cùng yêu cầu: theo hướng dẫn coach được báo lại, khoanh ignore sát cụm người chen chúc khó tách; người/xe tiền cảnh tách khỏi cụm vẫn xét riêng. Đây là ca hướng dẫn, không phải xác nhận annotation đã sửa.
 
 ### 4.2. Tổng hợp khác biệt và lựa chọn kỹ thuật
 
-P = bản Phong; K = bản Khoa; Q = bản nghiên cứu của Quý. Q và K còn ghi trạng thái đề xuất; bảng sau không giả định tác giả đã phê duyệt mọi dòng. Đây là lựa chọn tổng hợp để nhóm đọc/chốt, không phải biên bản cuộc họp đã diễn ra.
+P = bản 101; K = bản 102; Q = bản nghiên cứu của 103. Q và K còn ghi trạng thái đề xuất; bảng sau không giả định tác giả đã phê duyệt mọi dòng. Đây là lựa chọn tổng hợp để nhóm đọc/chốt, không phải biên bản cuộc họp đã diễn ra.
 
 | Vấn đề | Nội dung đầu vào | Lựa chọn bản chung và lý do |
 |---|---|---|
-| Phạm vi lớp | P: tên lớp cơ bản; K: định nghĩa kiểu thân và loại phương tiện ngoài lớp; Q: giữ schema, còn điểm cần bổ sung. | Dùng định nghĩa kiểu thân K; bản hoàn thiện này có tám lớp, bổ sung bus/tuk_tuk theo hướng dẫn coach do Quý báo lại. Không ép vào lớp gần giống. |
+| Phạm vi lớp | P: tên lớp cơ bản; K: định nghĩa kiểu thân và loại phương tiện ngoài lớp; Q: giữ schema, còn điểm cần bổ sung. | Dùng định nghĩa kiểu thân K; bản hoàn thiện này có tám lớp, bổ sung bus/tuk_tuk theo hướng dẫn coach do 103 báo lại. Không ép vào lớp gần giống. |
 | Box khuất/chồng | P: không suy đoán, box độc lập; K/Q: bao các phần nhìn thấy, chấp nhận box chồng. | R-01/R-02 giữ điểm chung, làm rõ box chữ nhật có thể chứa nền. |
 | Người trên xe | P: một vật một box nhưng chưa quy định số; K/Q: tách người và xe. | R-03 quy định số instance có điều kiện, không gộp hoặc thêm rider. |
 | Che khuất | P/v0: mức chưa có ngưỡng; K: 30/70, mức 3 che nặng; Q: 50%, mức 3 unknown. | Chọn K 30/70 để đủ bốn mức định lượng. Không trộn hai nghĩa của mức 3; bất định dùng review/vấn đề cấp ảnh. |
@@ -126,7 +126,7 @@ P = bản Phong; K = bản Khoa; Q = bản nghiên cứu của Quý. Q và K cò
 2. Cùng giải thích R-03 trên img_005 và img_026 trước lượt độc lập. Đây là kiểm hiểu quy tắc ở Pha 2; sau khi khóa lượt gán, không xem/trao đổi nhãn của nhau.
 3. Ghi mốc chốt/commit vào ghi chú nhóm khi đã thật sự xác nhận. Giữ v1.0 và taxonomy cố định cho cả lượt. Không có bằng chứng nhóm đã chốt thì chưa tuyên bố hoàn thành Pha 2.
 4. `python scripts/make_cvat_labels.py` → [labels_generated.json](../../cvat/labels_generated.json). Cấu hình này sinh từ taxonomy v1.0, không sửa tay JSON CVAT.
-5. Tạo Project CVAT dùng bộ lớp trên; mỗi người tạo Task riêng, tải đúng `work/<Ten_MSHV>/images/`. Phong 27, Khoa 27, Quý 26 ảnh, theo [assignment.csv](../qc/assignment.csv). Giữ frame không có vật; không upload cả 40 ảnh vào mỗi Task gán độc lập.
+5. Tạo Project CVAT dùng bộ lớp trên; mỗi người tạo Task riêng, tải đúng `work/<ma>/images/`. 101 27, 102 27, 103 26 ảnh, theo [assignment.csv](../qc/assignment.csv). Giữ frame không có vật; không upload cả 40 ảnh vào mỗi Task gán độc lập.
 
 Xác nhận cũ chỉ áp dụng nội dung tại commit đã ghi, không tự áp dụng cho bổ sung tám lớp. Cả nhóm cần xác nhận bản cập nhật và ghi commit khóa lại. Nhãn theo bản sáu lớp giữ riêng; trước khi đo IAA theo bản cập nhật, mỗi thành viên rà lại toàn bộ ảnh được giao, thêm vật thuộc lớp mới và áp dụng cùng quy tắc ignore, rồi xuất lại COCO. Không trộn các bản khác phạm vi trong cùng lượt IAA. Nếu nhóm đã khóa/nộp xong lượt độc lập và chuyển Pha 4–5, giữ lượt đó làm mốc và xử lý thay đổi theo calibration v1.1 trong GUIDE.md, không viết lại dữ liệu ban đầu.
 
@@ -134,8 +134,8 @@ Xác nhận cũ chỉ áp dụng nội dung tại commit đã ghi, không tự �
 
 - Rà từng ảnh: đủ instance thuộc phạm vi, box sát phần nhìn thấy, không gộp/trùng, không gán hình in/tượng, thuộc tính đúng; ignore không che vật đủ rõ.
 - Save trong CVAT; export **COCO 1.0**, tắt Save images. Giải nén ZIP, lấy `annotations/instances_*.json`; không đổi đuôi ZIP thành JSON.
-- Lưu `submission/labels/TranPhamHoangPhong_2A202603198.json`, `PhungDanhKhoa_2A202603206.json` hoặc `NguyenCongQuy_2A202603149.json` theo người làm.
-- Mỗi người chạy `python scripts/validate_labels.py submission/labels/<Ten_MSHV>.json`. Script kiểm cấu trúc/lớp/thuộc tính/phân công, không chứng minh box đúng vật/không bỏ sót. Nhãn và ghi chú gửi riêng; tập hợp sau khi cả ba đã nộp.
+- Lưu `submission/labels/101.json`, `102.json` hoặc `103.json` theo người làm.
+- Mỗi người chạy `python scripts/validate_labels.py submission/labels/<ma>.json`. Script kiểm cấu trúc/lớp/thuộc tính/phân công, không chứng minh box đúng vật/không bỏ sót. Nhãn và ghi chú gửi riêng; tập hợp sau khi cả ba đã nộp.
 
 ### 5.3. Ngưỡng và quy trình sau khi nộp đủ
 
@@ -162,7 +162,7 @@ Hold khi thiếu bằng chứng, chưa chốt quy tắc hoặc có vấn đề d
 | v0 | Bản khởi đầu: lớp ngắn, “ôm sát”, mức che chưa định lượng. | Starter của lab. |
 | v1.0 | Bản đầu sáu lớp, R-01–R-12, che 30/70; bổ sung ngày 2026-11-16 thành tám lớp với bus/tuk_tuk, màu và tiêu chí person/ignore. Giữ ngưỡng lab; cần đồng bộ và khóa lại bản cập nhật. | Tổng hợp ba bản cá nhân tại 1090cd3d7c917d8c2a079b1a65e617d2e97a0194, giải quyết khác biệt ở mục 4.2; không thay ngưỡng lab. |
 
-Ngày 2026-11-16, người điều phối NguyenCongQuy xác nhận cả TranPhamHoangPhong_2A202603198, PhungDanhKhoa_2A202603206 và NguyenCongQuy_2A202603149 đã đồng ý sử dụng guideline chung v1.0 tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Bảng ghi nhận nằm trong TEAM.md. Đây là xác nhận sử dụng quy tắc; số đo IAA và QC được ghi sau khi thực hiện.
+Ngày 2026-11-16, người điều phối 103 xác nhận cả 101, 102 và 103 đã đồng ý sử dụng guideline chung v1.0 tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Bảng ghi nhận nằm trong TEAM.md. Đây là xác nhận sử dụng quy tắc; số đo IAA và QC được ghi sau khi thực hiện.
 
 
 Nguồn bổ sung quy tắc nhóm: [Cityscapes — Class Definitions](https://www.cityscapes-dataset.com/dataset-overview/) dùng nhãn nhóm khi biên các instance không rõ. Ánh xạ sang ignore_region là quy ước lab theo coach; không tuyên bố hai bộ dữ liệu có cùng schema. [Định dạng COCO](https://github.com/cocodataset/cocodataset.github.io/blob/master/dataset/format-data.htm) có trường iscrowd riêng.
