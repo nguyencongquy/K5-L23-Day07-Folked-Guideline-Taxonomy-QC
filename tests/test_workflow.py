@@ -27,7 +27,7 @@ class WorkflowTest(unittest.TestCase):
         self.qc.mkdir(parents=True)
         (self.sub / "labels").mkdir()
         (self.sub / "guidelines").mkdir()
-        for name in ("guideline_v1.0.md", "guideline_v1.1_calibrated.md"):
+        for name in ("guideline_v1.0_agreed.md", "guideline_v1.1_calibrated.md"):
             (self.sub / "guidelines" / name).write_text("R-01", encoding="utf-8")
         self.write_json(self.sub / "guideline_change.json", {"kind": "editorial", "summary": "R-01 giữ nguyên"})
         self.tax = self.sub / "taxonomy.json"

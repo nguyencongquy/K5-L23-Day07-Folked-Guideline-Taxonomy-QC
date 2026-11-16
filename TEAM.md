@@ -17,12 +17,20 @@ Nhóm 3 thành viên, dùng mã `101`, `102`, `103` trong file và Task. Bảng 
 
 ## Việc cần làm tiếp
 
-1. Cả ba dùng cùng [guideline v1.0](submission/guidelines/guideline_v1.0.md), [taxonomy tám lớp](submission/taxonomy.json) và cấu hình nhãn CVAT tương ứng.
+1. Cả ba dùng cùng [guideline v1.0](submission/guidelines/guideline_v1.0_agreed.md), [taxonomy tám lớp](submission/taxonomy.json) và cấu hình nhãn CVAT tương ứng.
 2. Save và export COCO 1.0, tắt Save images. Lấy JSON trong thư mục annotations của ZIP, đặt đúng mã ở bảng trên. Giữ ảnh không có box.
 3. Chạy `python scripts/validate_labels.py submission/labels/101.json` (hoặc `102.json`, `103.json`). Tất cả đã hoàn thành lượt gán theo xác nhận của người điều phối; chỉ tập hợp sau khi cả ba khóa bản độc lập.
 4. Khi đủ ba file: `validate_labels.py --all`, `qc_compare.py`, `viz_disagreement.py --images flagged`; cả nhóm chốt calibration rồi QC và bàn giao theo GUIDE.md/SUBMISSION.md.
 
 Các đường dẫn COCO/ghi chú trong bảng là sản phẩm cần tập hợp, không phải bằng chứng file đã có đủ hoặc đã qua QC.
+
+## Đồng bộ trước khi tập hợp nhãn
+
+Người điều phối gửi cùng một commit tham chiếu cho cả ba. Từng người xác nhận đã đọc bộ chuẩn gồm guideline v1.0, taxonomy tám lớp, cấu hình CVAT và danh sách ảnh theo mã; không tự ghi thay xác nhận của người khác.
+
+Riêng `102`: gói HOLD đã nhận là snapshot sáu lớp, không thay thế repo chung hiện tại. Giữ snapshot cũ; lấy bộ chuẩn mới, bổ sung bus/tuk_tuk và rà ignore trên đúng 27 ảnh được giao. Nếu đã sửa CVAT, chỉ cần export lại. Với Project/Task đã có annotation, giữ các nhãn/ID hiện có; sửa tên lớp hoặc thêm lớp/thuộc tính còn thiếu, không xóa rồi tạo lại cả bộ nhãn.
+
+Bàn giao cá nhân cần `102.json`, ghi chú `102.md` do thành viên xác nhận, và các vấn đề cấp ảnh còn lại với annotator `102`. Guideline cá nhân gốc giữ quyết định ban đầu. Không yêu cầu `102` tự tạo IAA, calibration hay báo cáo QC của cả nhóm trước khi có đủ ba bản; các bước đó thực hiện chung sau khi khóa đầu vào.
 
 ## Lấy bản sửa và kiểm tra lỗi 101.json
 

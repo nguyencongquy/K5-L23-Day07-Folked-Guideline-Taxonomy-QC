@@ -2,7 +2,7 @@
 
 - Phiên bản v1.0, hoàn thiện ngày 2026-11-16 sau khi nhóm chốt quy tắc chung.
 - Đã xem đủ 40 ảnh. Lượt gán độc lập được phân công 26 ảnh.
-- Áp dụng [guideline nhóm v1.0](../guideline_v1.0.md) và [taxonomy](../../taxonomy.json).
+- Áp dụng [guideline nhóm v1.0](../guideline_v1.0_agreed.md) và [taxonomy](../../taxonomy.json).
 
 ## 1. Mục tiêu
 

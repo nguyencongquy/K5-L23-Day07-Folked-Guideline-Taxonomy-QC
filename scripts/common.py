@@ -17,7 +17,7 @@ from typing import Dict, List, Optional, Tuple
 ROOT = Path(__file__).resolve().parent.parent
 TAXONOMY_PATH = ROOT / "submission" / "taxonomy.json"
 FINAL_TAXONOMY_PATH = ROOT / "submission" / "taxonomy_v1.1.json"
-GUIDELINE_PATH = ROOT / "submission" / "guidelines" / "guideline_v1.0.md"
+GUIDELINE_PATH = ROOT / "submission" / "guidelines" / "guideline_v1.0_agreed.md"
 FINAL_GUIDELINE_PATH = ROOT / "submission" / "guidelines" / "guideline_v1.1_calibrated.md"
 ASSIGNMENT_PATH = ROOT / "submission" / "qc" / "assignment.csv"
 # Team customization: retain starter IDs and accept the requested Name_MSHV format.
