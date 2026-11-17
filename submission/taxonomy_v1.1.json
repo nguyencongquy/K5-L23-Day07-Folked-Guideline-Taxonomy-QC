@@ -1,0 +1,76 @@
+{
+  "version": "v1.1",
+  "ignore_class": "ignore_region",
+  "classes": [
+    {
+      "name": "car",
+      "definition": "Ô tô con hoặc SUV thật hiện diện trực tiếp; không gồm van thân hộp, xe có thùng hàng riêng hay bus. Gán cả xe đỗ và xe được chở nếu đủ điều kiện."
+    },
+    {
+      "name": "truck",
+      "definition": "Xe tải có sàn/thùng hàng tách cabin, gồm xe chở ô tô và pickup; nắp cao không đổi pickup thành van. Chỉ phần thân/khung cố định thuộc instance xe chở."
+    },
+    {
+      "name": "van",
+      "definition": "Xe cỡ nhỏ thân hộp, khoang kín phía sau liền thân với cabin, không có thùng pickup tách cabin; không gồm bus."
+    },
+    {
+      "name": "motorcycle",
+      "definition": "Xe máy/mô tô có động cơ, gồm xe tay ga và mô tô truyền thống gắn thùng phụ cố định (sidecar). Người ngồi trên xe/thùng phụ là instance riêng. Không gồm xe đạp/xích lô đạp chân hoặc auto-rickshaw/tuk_tuk có cấu trúc ba bánh nguyên bản."
+    },
+    {
+      "name": "person",
+      "definition": "Người thật nhìn trực tiếp trong cảnh, gồm người đi bộ, đứng, ngồi và người trên phương tiện. Không gồm hình in, tượng, ma-nơ-canh hoặc ảnh phản chiếu."
+    },
+    {
+      "name": "ignore_region",
+      "definition": "Vùng có đối tượng thuộc phạm vi nhưng visible bbox cao dưới 20 px, hoặc cụm chen chúc không tách được cá thể/biên đáng tin cậy dù một số phần cao >=20 px. Không phủ cả hàng người còn tách được; không thay cho vật ngoài taxonomy, hình in, tượng hoặc vùng tối."
+    },
+    {
+      "name": "bus",
+      "definition": "Xe buýt hoặc xe khách thật có thân chuyên chở nhiều hành khách; không gồm van cỡ nhỏ, hình in hoặc mô hình. Box bao các phần cố định nhìn thấy, người được xét riêng."
+    },
+    {
+      "name": "tuk_tuk",
+      "definition": "Xe ba bánh có động cơ dạng auto-rickshaw/tuk-tuk chở khách hoặc hàng; không gồm xe máy hai bánh, xe đạp/xích lô đạp chân. Box không bao hàng rời hoặc người."
+    }
+  ],
+  "attributes": [
+    {
+      "name": "occluded_level",
+      "type": "select",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "default": "0"
+    },
+    {
+      "name": "truncated",
+      "type": "select",
+      "values": [
+        "no",
+        "yes"
+      ],
+      "default": "no"
+    },
+    {
+      "name": "can_review",
+      "type": "checkbox",
+      "values": [],
+      "default": "false"
+    }
+  ],
+  "rules": {
+    "min_box_height_px": 20,
+    "iou_thr_large": 0.85,
+    "iou_thr_small": 0.7,
+    "large_px": 50,
+    "iaa_iou": 0.85,
+    "iaa_class": 0.95,
+    "error_rate_img_max": 0.02,
+    "match_iou": 0.5
+  }
+}

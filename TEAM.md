@@ -11,26 +11,15 @@ Nhóm 3 thành viên, dùng mã `101`, `102`, `103` trong file và Task. Bảng 
 | `103` | 26 | [103.txt](submission/qc/assignments/103.txt) | [guideline_103.md](submission/guidelines/individual/guideline_103.md) | `submission/labels/103.json` | `submission/individual_notes/103.md` |
 
 - Người điều phối: `103`.
-- Người review bản cuối: nhóm chốt trước vòng QC; ưu tiên người khác người sửa.
+- Đầu mối chốt/sửa/rà bản cuối: `103` theo ủy quyền; chưa có xác nhận reviewer độc lập.
 - Bảng chung: [assignment.csv](submission/qc/assignment.csv), đủ 40 ảnh, mỗi ảnh 2 người gán, tổng 80 lượt.
 - Ngày 2026-11-17: chuyển định danh cũ sang mã tại chỗ. Danh sách ảnh của từng người được giữ nguyên, không chia lại. Số ảnh vẫn 27/27/26.
 
-## Việc cần làm tiếp
+## Bàn giao hiện tại
 
-1. Cả ba dùng cùng [guideline v1.0](submission/guidelines/guideline_v1.0_agreed.md), [taxonomy tám lớp](submission/taxonomy.json) và cấu hình nhãn CVAT tương ứng.
-2. Save và export COCO 1.0, tắt Save images. Lấy JSON trong thư mục annotations của ZIP, đặt đúng mã ở bảng trên. Giữ ảnh không có box.
-3. Chạy `python scripts/validate_labels.py submission/labels/101.json` (hoặc `102.json`, `103.json`). Tất cả đã hoàn thành lượt gán theo xác nhận của người điều phối; chỉ tập hợp sau khi cả ba khóa bản độc lập.
-4. Khi đủ ba file: `validate_labels.py --all`, `qc_compare.py`, `viz_disagreement.py --images flagged`; cả nhóm chốt calibration rồi QC và bàn giao theo GUIDE.md/SUBMISSION.md.
+Đã nhận đủ ba COCO và ghi chú. Cả ba xác nhận bộ tám lớp qua 103. Người điều phối xác nhận nhóm ủy quyền 103 chốt phương án calibration và hoàn thiện bộ bài ngày 2026-11-17.
 
-Các đường dẫn COCO/ghi chú trong bảng là sản phẩm cần tập hợp, không phải bằng chứng file đã có đủ hoặc đã qua QC.
-
-## Đồng bộ trước khi tập hợp nhãn
-
-Người điều phối gửi cùng một commit tham chiếu cho cả ba. Từng người xác nhận đã đọc bộ chuẩn gồm guideline v1.0, taxonomy tám lớp, cấu hình CVAT và danh sách ảnh theo mã; không tự ghi thay xác nhận của người khác.
-
-Riêng `102`: đã nhận bản JSON mới có tám lớp, đúng 27 ảnh và 13 dòng vấn đề dùng mã 102. Giữ gói HOLD sáu lớp làm lịch sử; không yêu cầu làm lại từ snapshot cũ. Bản mới đã được đưa vào lần IAA hiện tại; sửa sau đây cần bản riêng theo quyết định calibration, không ghi đè đầu vào đã đo.
-
-Bàn giao cá nhân cần `102.json`, ghi chú `102.md` do thành viên xác nhận, và các vấn đề cấp ảnh còn lại với annotator `102`. Guideline cá nhân gốc giữ quyết định ban đầu. Không yêu cầu `102` tự tạo IAA, calibration hay báo cáo QC của cả nhóm trước khi có đủ ba bản; các bước đó thực hiện chung sau khi khóa đầu vào.
+Bản gán độc lập dùng v1.0, bản cuối dùng v1.1 (mô tô có sidecar). Không ghi đè COCO gốc. 103 là đầu mối sửa và rà theo ủy quyền; không ghi 101/102 đã review bản cuối. Bước review độc lập/người ngoài nhóm chưa có xác nhận.
 
 ## Lấy bản sửa và kiểm tra lỗi 101.json
 
@@ -45,13 +34,10 @@ Bảng phân công hiện nhận mã `101`, `102`, `103`. Không đặt tên COC
 
 ## Trạng thái và bằng chứng
 
-- Guideline cá nhân: đã tập hợp ba bản; lần đổi mã chỉ sửa định danh/đường dẫn, giữ quyết định annotation và lịch sử commit.
-- Mốc xác nhận bản sáu lớp: cả ba đã đồng ý theo xác nhận người điều phối ngày 2026-11-16 tại commit `3e651e6a28645eec131b765bdea956c58c11f516`.
-- Bổ sung tám lớp: theo hướng dẫn coach do `103` báo lại, thêm bus/tuk_tuk và làm rõ ignore. Ngày 2026-11-17, người điều phối 103 xác nhận cả ba đã đồng ý bộ tám lớp và commit áp dụng; giữ mốc sáu lớp làm lịch sử.
-- CVAT local của `103`: Project #2 có tám lớp; Task đã chuẩn hóa tên `task-103`; job #16 sau tự kiểm lưu 470 annotation trên 26 ảnh, 56 box có can_review. Bản 471/69 trước tự kiểm được giữ riêng.
-- Tiến độ gán: đã nhận 101.json, 102.json mới và bản 103 sau tự kiểm; validate toàn bộ đủ 80/80 lượt. 102 mới có tám lớp, 13 vấn đề cấp ảnh; 103 thêm một vấn đề. Nhãn và artifact nhóm tập hợp cục bộ, chưa dùng repo public làm gói nộp.
-- Ghi chú cá nhân: ngày 2026-11-17 đã nhận thêm 101.md và 102.md; người điều phối xác nhận 102 đã đọc/chốt nội dung. Đủ ba bản ghi chú ở workspace, giữ bản gốc. Đã bổ sung thống kê kiểm được cho 101, không điền quyết định calibration/QC chưa thực hiện.
-- IAA cục bộ: 303 cặp, IoU 0.806, cùng lớp 93.1%, chưa đạt; 850 dòng cần xem trên 40 ảnh. Đã sinh overlay. Calibration và QC cuối chưa thực hiện; chưa có Release.
-- Commit chốt bài: điền ở kênh nộp sau khi kiểm tra xong.
-
-Lần chuẩn hóa mã không thay ngưỡng QC, tên class, thuộc tính hoặc tọa độ annotation. Không dùng số lượng file hoặc trạng thái Save/Finish để thay kết quả IAA/QC.
+- Mốc sáu lớp cũ: `3e651e6a28645eec131b765bdea956c58c11f516`; bộ tám lớp trước IAA tham chiếu `4d557cf46301855da38780d937ff0d96babc76d0`. Giữ lịch sử, không tạo lại lượt độc lập.
+- 101/102/103: đủ 27/27/26 ảnh, 80/80 lượt và đủ ghi chú. 102 được 103 xác nhận đã đọc/chốt nội dung ghi chú.
+- IAA trước calibration: 303 cặp, IoU 0.806, cùng lớp 93.07%, chưa đạt; giữ nguyên số đo.
+- Calibration: 861 quyết định gồm Q01–Q04 sau QC; có dấu vết nguồn và sửa. Nhãn cuối 40 ảnh, 557 annotation.
+- QC: vòng 1 Rework 1/40 ảnh; vòng 2 Rework 3/40 ảnh; vòng 3 script Release 0/40 ảnh, 0/541 đối tượng lỗi phát hiện. Chi tiết và giới hạn tại QC_REPORT.md.
+- Repo giữ public, không mời coach theo yêu cầu người điều phối; ZIP dùng cho bàn giao. Khác hướng dẫn nộp riêng tư của starter.
+- Người ngoài nhóm chưa kiểm ngược; 103 đã yêu cầu tự kiểm thay, được ghi đúng là self_traceback.md, không gán người kiểm giả.

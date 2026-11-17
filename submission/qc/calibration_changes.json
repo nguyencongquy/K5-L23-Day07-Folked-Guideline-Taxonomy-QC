@@ -1,0 +1,1925 @@
+[
+  {
+    "image": "img_002.jpg",
+    "source": "102:11",
+    "action": "update",
+    "reason": "R-01: giữ cả lốp/phần thân xe đỏ nhìn thấy trên tầng trên.",
+    "before": {
+      "id": 11,
+      "image_id": 2,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 53756.0,
+      "bbox": [
+        153.0,
+        50.0,
+        356.0,
+        151.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:11",
+      "cls": "car"
+    },
+    "after": {
+      "id": 11,
+      "image_id": 2,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 53756.0,
+      "bbox": [
+        146,
+        49,
+        364,
+        164
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:11",
+      "cls": "car"
+    }
+  },
+  {
+    "image": "img_004.jpg",
+    "source": "102:19",
+    "action": "update",
+    "reason": "R-01: bao biển TAXI gắn cố định, bánh xe; không cắt đáy bánh.",
+    "before": {
+      "id": 19,
+      "image_id": 3,
+      "category_id": 8,
+      "segmentation": [],
+      "area": 226188.0,
+      "bbox": [
+        69.0,
+        43.0,
+        412.0,
+        549.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "102:19",
+      "cls": "tuk_tuk"
+    },
+    "after": {
+      "id": 19,
+      "image_id": 3,
+      "category_id": 8,
+      "segmentation": [],
+      "area": 226188.0,
+      "bbox": [
+        67,
+        43,
+        422,
+        556
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "102:19",
+      "cls": "tuk_tuk"
+    }
+  },
+  {
+    "image": "img_004.jpg",
+    "source": "102:20",
+    "action": "update",
+    "reason": "R-01/R-09: chỉ đầu, vai, thân và tay lái nhìn qua kính; bỏ phần kéo xuống tấm chắn xe.",
+    "before": {
+      "id": 20,
+      "image_id": 3,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 41463.0,
+      "bbox": [
+        182.0,
+        148.0,
+        153.0,
+        271.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:20",
+      "cls": "person"
+    },
+    "after": {
+      "id": 20,
+      "image_id": 3,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 41463.0,
+      "bbox": [
+        210,
+        130,
+        126,
+        112
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:20",
+      "cls": "person"
+    }
+  },
+  {
+    "image": "img_004.jpg",
+    "source": "102:21",
+    "action": "update",
+    "reason": "R-01: bao đúng người lái bên phải gồm bàn chân nhìn thấy, không bao ghế trống bên trái.",
+    "before": {
+      "id": 21,
+      "image_id": 3,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 24250.0,
+      "bbox": [
+        560.0,
+        158.0,
+        125.0,
+        194.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:21",
+      "cls": "person"
+    },
+    "after": {
+      "id": 21,
+      "image_id": 3,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 24250.0,
+      "bbox": [
+        580,
+        155,
+        105,
+        196
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:21",
+      "cls": "person"
+    }
+  },
+  {
+    "image": "img_003.jpg",
+    "source": "103:30",
+    "action": "remove",
+    "reason": "R-12: xe đạp được người áo đỏ dắt có bàn đạp/khung xích, ngoài phạm vi motorcycle; người giữ lại.",
+    "before": {
+      "id": 30,
+      "image_id": 2,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 68257.0,
+      "bbox": [
+        0.0,
+        227.0,
+        199.0,
+        343.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:30",
+      "cls": "motorcycle"
+    },
+    "after": null
+  },
+  {
+    "image": "img_003.jpg",
+    "source": "103:14",
+    "action": "update",
+    "reason": "R-01/R-12: bánh sau xe đạp không thuộc mô tô phía sau. Thu về phần mô tô kem thấy được.",
+    "before": {
+      "id": 14,
+      "image_id": 2,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 61178.0,
+      "bbox": [
+        250.0,
+        120.0,
+        169.0,
+        362.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:14",
+      "cls": "motorcycle"
+    },
+    "after": {
+      "id": 14,
+      "image_id": 2,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 61178.0,
+      "bbox": [
+        251.3,
+        120.8,
+        165.6,
+        282.13
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:14",
+      "cls": "motorcycle"
+    }
+  },
+  {
+    "image": "img_003.jpg",
+    "source": "103:48",
+    "action": "update",
+    "reason": "R-09: người áo đỏ bị cắt đầu ở mép trên; thân/chân không bị vật khác che đáng kể.",
+    "before": {
+      "id": 48,
+      "image_id": 2,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 123625.0,
+      "bbox": [
+        97.0,
+        0.0,
+        215.0,
+        575.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:48",
+      "cls": "person"
+    },
+    "after": {
+      "id": 48,
+      "image_id": 2,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 123625.0,
+      "bbox": [
+        97.0,
+        0.0,
+        215.0,
+        575.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:48",
+      "cls": "person"
+    }
+  },
+  {
+    "image": "img_003.jpg",
+    "source": "103:9",
+    "action": "update",
+    "reason": "R-09: người áo trắng phía phải chỉ lộ thân trên, phần dưới bị người/gánh hàng che.",
+    "before": {
+      "id": 9,
+      "image_id": 2,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 24987.68999999999,
+      "bbox": [
+        682.2,
+        5.6,
+        105.3,
+        237.3
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:9",
+      "cls": "person"
+    },
+    "after": {
+      "id": 9,
+      "image_id": 2,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 24987.68999999999,
+      "bbox": [
+        682.2,
+        5.6,
+        105.3,
+        237.3
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:9",
+      "cls": "person"
+    }
+  },
+  {
+    "image": "img_008.jpg",
+    "source": "103:106",
+    "action": "remove",
+    "reason": "R-01/R-07/R-10: góc dưới trái chỉ là chi tiết xe sát camera, không đủ biên xác lập instance riêng; không nhân đôi xe chính.",
+    "before": {
+      "id": 106,
+      "image_id": 5,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 13474.600000000008,
+      "bbox": [
+        0.6,
+        561.9,
+        178.0,
+        75.7
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "yes",
+        "can_review": true,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:106",
+      "cls": "motorcycle"
+    },
+    "after": null
+  },
+  {
+    "image": "img_011.jpg",
+    "source": "103:172",
+    "action": "remove",
+    "reason": "R-06/R-12: chi tiết bánh/khung ở khu trưng bày không đủ dấu hiệu mô tô thật trực tiếp; không gán từ hình bánh riêng.",
+    "before": {
+      "id": 172,
+      "image_id": 8,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 814.899999999999,
+      "bbox": [
+        0.0,
+        352.6,
+        29.0,
+        28.1
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:172",
+      "cls": "motorcycle"
+    },
+    "after": null
+  },
+  {
+    "image": "img_011.jpg",
+    "source": "NEW-11",
+    "action": "add",
+    "reason": "R-05/R-11: dải người rất xa dưới ngưỡng/tách biên kém sau người tiền cảnh; vùng hẹp.",
+    "before": null,
+    "after": {
+      "source": "NEW-11",
+      "cls": "ignore_region",
+      "bbox": [
+        104,
+        326,
+        59,
+        19
+      ],
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_011.jpg",
+    "source": "NEW-12",
+    "action": "add",
+    "reason": "R-05/R-11: nhóm đầu xa không có biên instance đạt ngưỡng.",
+    "before": null,
+    "after": {
+      "source": "NEW-12",
+      "cls": "ignore_region",
+      "bbox": [
+        229,
+        326,
+        35,
+        19
+      ],
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_013.jpg",
+    "source": "103:189",
+    "action": "update",
+    "reason": "R-08/R-10: khoang kín cao phía sau là van; mở box tới phần thân trắng nhìn thấy.",
+    "before": {
+      "id": 189,
+      "image_id": 9,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 832.140000000001,
+      "bbox": [
+        224.4,
+        412.0,
+        41.4,
+        20.1
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:189",
+      "cls": "van"
+    },
+    "after": {
+      "id": 189,
+      "image_id": 9,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 832.140000000001,
+      "bbox": [
+        212,
+        411,
+        41,
+        31
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:189",
+      "cls": "van"
+    }
+  },
+  {
+    "image": "img_013.jpg",
+    "source": "103:186",
+    "action": "update",
+    "reason": "R-01: xe con trắng phía trước van là instance riêng, gồm phần mui nhìn thấy.",
+    "before": {
+      "id": 186,
+      "image_id": 9,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 935.9999999999992,
+      "bbox": [
+        239.8,
+        419.4,
+        41.6,
+        22.5
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:186",
+      "cls": "car"
+    },
+    "after": {
+      "id": 186,
+      "image_id": 9,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 935.9999999999992,
+      "bbox": [
+        240,
+        416,
+        42,
+        27
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:186",
+      "cls": "car"
+    }
+  },
+  {
+    "image": "img_013.jpg",
+    "source": "103:188",
+    "action": "remove",
+    "reason": "R-05: vùng cũ phủ vào van đủ điều kiện đã đặt box; không giữ ignore của chính vật đó.",
+    "before": {
+      "id": 188,
+      "image_id": 9,
+      "category_id": 6,
+      "segmentation": [],
+      "area": 468.0,
+      "bbox": [
+        209.0,
+        420.0,
+        26.0,
+        18.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:188",
+      "cls": "ignore_region"
+    },
+    "after": null
+  },
+  {
+    "image": "img_013.jpg",
+    "source": "NEW-16",
+    "action": "add",
+    "reason": "R-05/R-10: chi tiết xe rất xa ở lề trái chỉ có phần nhìn thấy dưới 20 px.",
+    "before": null,
+    "after": {
+      "source": "NEW-16",
+      "cls": "ignore_region",
+      "bbox": [
+        134,
+        427,
+        25,
+        17
+      ],
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "102:77",
+    "action": "update",
+    "reason": "R-01/R-10: thêm chân người lái nhòe còn thấy dưới thân; không dừng box ở hết áo.",
+    "before": {
+      "id": 77,
+      "image_id": 10,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 25604.0,
+      "bbox": [
+        468.0,
+        184.0,
+        148.0,
+        173.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:77",
+      "cls": "person"
+    },
+    "after": {
+      "id": 77,
+      "image_id": 10,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 25604.0,
+      "bbox": [
+        468,
+        184,
+        177,
+        321
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:77",
+      "cls": "person"
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "102:78",
+    "action": "update",
+    "reason": "R-09/R-10: hai người tiền cảnh che phần lớn xe giữa; nhòe không phải lý do gán occlusion.",
+    "before": {
+      "id": 78,
+      "image_id": 10,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 30624.0,
+      "bbox": [
+        475.0,
+        333.0,
+        174.0,
+        176.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:78",
+      "cls": "motorcycle"
+    },
+    "after": {
+      "id": 78,
+      "image_id": 10,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 30624.0,
+      "bbox": [
+        475.0,
+        333.0,
+        174.0,
+        176.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "102:78",
+      "cls": "motorcycle"
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-19",
+    "action": "add",
+    "reason": "R-01/R-09/R-10: người lái nhòe sát mép trái có mũ, áo, tay và chân quan sát được; biên lõi, không cả vệt nhòe.",
+    "before": null,
+    "after": {
+      "source": "NEW-19",
+      "cls": "person",
+      "bbox": [
+        0,
+        178,
+        263,
+        534
+      ],
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-20",
+    "action": "add",
+    "reason": "R-01/R-09/R-10: phần xe bên trái nhìn thấy độc lập với người; bị người đứng trước che.",
+    "before": null,
+    "after": {
+      "source": "NEW-20",
+      "cls": "motorcycle",
+      "bbox": [
+        0,
+        312,
+        264,
+        370
+      ],
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-21",
+    "action": "add",
+    "reason": "R-03/R-09/R-10: người áo trắng/đùi xanh trên xe sát mép phải, cắt tại khung ảnh.",
+    "before": null,
+    "after": {
+      "source": "NEW-21",
+      "cls": "person",
+      "bbox": [
+        863,
+        178,
+        97,
+        220
+      ],
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-22",
+    "action": "add",
+    "reason": "R-03/R-09/R-10: bánh và yên xe sát mép phải, không gộp cùng box người.",
+    "before": null,
+    "after": {
+      "source": "NEW-22",
+      "cls": "motorcycle",
+      "bbox": [
+        807,
+        321,
+        153,
+        185
+      ],
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_015.jpg",
+    "source": "103:197",
+    "action": "remove",
+    "reason": "R-06/R-10: hình đen là thùng/thiết bị đường phố có dải phản quang, không có đầu/chi người.",
+    "before": {
+      "id": 197,
+      "image_id": 10,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 4048.0,
+      "bbox": [
+        711.0,
+        97.0,
+        46.0,
+        88.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:197",
+      "cls": "person"
+    },
+    "after": null
+  },
+  {
+    "image": "img_016.jpg",
+    "source": "NEW-24",
+    "action": "add",
+    "reason": "R-04/R-08: pickup MIGHTY-X có thùng riêng, bị tuk-tuk tiền cảnh che; hai người đều chưa gán đúng lớp.",
+    "before": null,
+    "after": {
+      "source": "NEW-24",
+      "cls": "truck",
+      "bbox": [
+        0,
+        282,
+        313,
+        246
+      ],
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_018.jpg",
+    "source": "103:216",
+    "action": "update",
+    "reason": "R-01: phần nhỏ bên trái thuộc cùng mặt trước van lớn; hợp nhất biên nhìn thấy.",
+    "before": {
+      "id": 216,
+      "image_id": 12,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 35696.52,
+      "bbox": [
+        165.4,
+        496.2,
+        206.1,
+        173.2
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:216",
+      "cls": "van"
+    },
+    "after": {
+      "id": 216,
+      "image_id": 12,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 35696.52,
+      "bbox": [
+        142,
+        495,
+        230,
+        175
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:216",
+      "cls": "van"
+    }
+  },
+  {
+    "image": "img_018.jpg",
+    "source": "103:215",
+    "action": "remove",
+    "reason": "R-02: box trùng một phần mặt trước của van 103:216; không tạo xe thứ hai từ cùng đèn/thân.",
+    "before": {
+      "id": 215,
+      "image_id": 12,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 3136.8799999999983,
+      "bbox": [
+        143.4,
+        533.5,
+        45.2,
+        69.4
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:215",
+      "cls": "van"
+    },
+    "after": null
+  },
+  {
+    "image": "img_018.jpg",
+    "source": "103:212",
+    "action": "update",
+    "reason": "R-08: xe bên phải có mui thấp và thân ô tô con, không thấy khoang hộp của van.",
+    "before": {
+      "id": 212,
+      "image_id": 12,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 22324.500000000007,
+      "bbox": [
+        741.8,
+        543.5,
+        217.8,
+        102.5
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:212",
+      "cls": "van"
+    },
+    "after": {
+      "id": 212,
+      "image_id": 12,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 22324.500000000007,
+      "bbox": [
+        733,
+        543,
+        227,
+        120
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:212",
+      "cls": "car"
+    }
+  },
+  {
+    "image": "img_022.jpg",
+    "source": "NEW-28",
+    "action": "add",
+    "reason": "R-01/R-03: người ngồi thùng phụ có đầu/mũ và vai thấy qua kính; giữ riêng với mô tô.",
+    "before": null,
+    "after": {
+      "source": "NEW-28",
+      "cls": "person",
+      "bbox": [
+        574.86,
+        464.71,
+        69.8,
+        61.23
+      ],
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_022.jpg",
+    "source": "102:134",
+    "action": "update",
+    "reason": "R-04/R-08 v1.1: mô tô truyền thống gắn thùng phụ, bao cả cụm cơ khí cố định; không phải auto-rickshaw.",
+    "before": {
+      "id": 134,
+      "image_id": 15,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 29232.0,
+      "bbox": [
+        485.0,
+        477.0,
+        203.0,
+        144.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "102:134",
+      "cls": "motorcycle"
+    },
+    "after": {
+      "id": 134,
+      "image_id": 15,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 29232.0,
+      "bbox": [
+        483,
+        474,
+        207,
+        149
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "102:134",
+      "cls": "motorcycle"
+    }
+  },
+  {
+    "image": "img_024.jpg",
+    "source": "NEW-30",
+    "action": "add",
+    "reason": "R-04/R-06: ô tô vàng thật trưng bày trên xe khác, có thân và bánh riêng; không loại vì đặt cao.",
+    "before": null,
+    "after": {
+      "source": "NEW-30",
+      "cls": "car",
+      "bbox": [
+        241,
+        43,
+        465,
+        201
+      ],
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_024.jpg",
+    "source": "103:316",
+    "action": "update",
+    "reason": "R-01: đưa mép trên lên nóc/giá gắn cố định nhìn thấy, không bao ô tô vàng được chở.",
+    "before": {
+      "id": 316,
+      "image_id": 16,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 362024.0,
+      "bbox": [
+        76.0,
+        231.0,
+        767.0,
+        472.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:316",
+      "cls": "car"
+    },
+    "after": {
+      "id": 316,
+      "image_id": 16,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 362024.0,
+      "bbox": [
+        76,
+        222,
+        767,
+        481
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      },
+      "source": "103:316",
+      "cls": "car"
+    }
+  },
+  {
+    "image": "img_025.jpg",
+    "source": "103:330",
+    "action": "update",
+    "reason": "R-04/R-08 v1.1: xe máy kéo thùng phụ cố định; box gồm khung thùng bên hông, loại hàng rời.",
+    "before": {
+      "id": 330,
+      "image_id": 17,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 3166.6199999999994,
+      "bbox": [
+        806.9,
+        383.2,
+        53.4,
+        59.3
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:330",
+      "cls": "motorcycle"
+    },
+    "after": {
+      "id": 330,
+      "image_id": 17,
+      "category_id": 4,
+      "segmentation": [],
+      "area": 3166.6199999999994,
+      "bbox": [
+        804,
+        341,
+        112,
+        103
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:330",
+      "cls": "motorcycle"
+    }
+  },
+  {
+    "image": "img_025.jpg",
+    "source": "103:339",
+    "action": "update",
+    "reason": "R-08: phần xe bạc sát mép phải không có thùng riêng quan sát được; giữ car và bỏ khung thùng phụ khỏi box.",
+    "before": {
+      "id": 339,
+      "image_id": 17,
+      "category_id": 2,
+      "segmentation": [],
+      "area": 8242.73999999999,
+      "bbox": [
+        851.2,
+        341.0,
+        108.6,
+        75.9
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:339",
+      "cls": "truck"
+    },
+    "after": {
+      "id": 339,
+      "image_id": 17,
+      "category_id": 2,
+      "segmentation": [],
+      "area": 8242.73999999999,
+      "bbox": [
+        899,
+        341,
+        61,
+        76
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "yes",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:339",
+      "cls": "car"
+    }
+  },
+  {
+    "image": "img_030.jpg",
+    "source": "103:359",
+    "action": "remove",
+    "reason": "R-02: box nhỏ nằm trên cùng đầu/vai người áo xanh 103:357, không có người thứ hai.",
+    "before": {
+      "id": 359,
+      "image_id": 20,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 1009.8000000000015,
+      "bbox": [
+        698.4,
+        54.3,
+        29.7,
+        34.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:359",
+      "cls": "person"
+    },
+    "after": null
+  },
+  {
+    "image": "img_032.jpg",
+    "source": "103:383",
+    "action": "update",
+    "reason": "R-08: xe trắng phía sau người áo đỏ có thân liền kiểu ô tô, không thấy thùng pickup.",
+    "before": {
+      "id": 383,
+      "image_id": 21,
+      "category_id": 2,
+      "segmentation": [],
+      "area": 2277.319999999997,
+      "bbox": [
+        832.2,
+        276.5,
+        57.8,
+        39.4
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:383",
+      "cls": "truck"
+    },
+    "after": {
+      "id": 383,
+      "image_id": 21,
+      "category_id": 2,
+      "segmentation": [],
+      "area": 2277.319999999997,
+      "bbox": [
+        832.2,
+        276.5,
+        57.8,
+        39.4
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:383",
+      "cls": "car"
+    }
+  },
+  {
+    "image": "img_032.jpg",
+    "source": "103:384",
+    "action": "update",
+    "reason": "R-08: minivan trắng thân hộp trong nhà chờ, giữ van; box ôm phần nhìn thấy.",
+    "before": {
+      "id": 384,
+      "image_id": 21,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 3895.36,
+      "bbox": [
+        690.5,
+        269.4,
+        65.8,
+        59.2
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:384",
+      "cls": "van"
+    },
+    "after": {
+      "id": 384,
+      "image_id": 21,
+      "category_id": 3,
+      "segmentation": [],
+      "area": 3895.36,
+      "bbox": [
+        690.5,
+        269.4,
+        65.8,
+        59.2
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:384",
+      "cls": "van"
+    }
+  },
+  {
+    "image": "img_035.jpg",
+    "source": "103:416",
+    "action": "update",
+    "reason": "R-01: bao cả nóc cố định tuk-tuk bên phải; phần bên trái bị người lái mô tô che.",
+    "before": {
+      "id": 416,
+      "image_id": 23,
+      "category_id": 8,
+      "segmentation": [],
+      "area": 18816.0,
+      "bbox": [
+        746.0,
+        218.0,
+        98.0,
+        192.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:416",
+      "cls": "tuk_tuk"
+    },
+    "after": {
+      "id": 416,
+      "image_id": 23,
+      "category_id": 8,
+      "segmentation": [],
+      "area": 18816.0,
+      "bbox": [
+        724,
+        210,
+        121,
+        208
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:416",
+      "cls": "tuk_tuk"
+    }
+  },
+  {
+    "image": "img_035.jpg",
+    "source": "103:424",
+    "action": "remove",
+    "reason": "R-02: vùng mũ/cổ cùng người lái 103:419; không có cá thể độc lập.",
+    "before": {
+      "id": 424,
+      "image_id": 23,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 817.7400000000009,
+      "bbox": [
+        667.5,
+        236.1,
+        23.1,
+        35.4
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:424",
+      "cls": "person"
+    },
+    "after": null
+  },
+  {
+    "image": "img_035.jpg",
+    "source": "103:425",
+    "action": "remove",
+    "reason": "R-02: cạnh mũ/vai cùng người lái 103:419; bỏ box trùng.",
+    "before": {
+      "id": 425,
+      "image_id": 23,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 293.37000000000097,
+      "bbox": [
+        652.0,
+        233.1,
+        12.7,
+        23.1
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:425",
+      "cls": "person"
+    },
+    "after": null
+  },
+  {
+    "image": "img_035.jpg",
+    "source": "103:432",
+    "action": "remove",
+    "reason": "R-06/R-10: vùng tối qua kính xe con chưa có cấu trúc đầu/người độc lập; không đoán thêm hành khách.",
+    "before": {
+      "id": 432,
+      "image_id": 23,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 622.1999999999994,
+      "bbox": [
+        555.0,
+        263.0,
+        25.5,
+        24.4
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:432",
+      "cls": "person"
+    },
+    "after": null
+  },
+  {
+    "image": "img_035.jpg",
+    "source": "103:431",
+    "action": "update",
+    "reason": "R-01/R-04: chỉ vỏ/nóc cố định tuk-tuk, không kéo theo bao tải chất cao.",
+    "before": {
+      "id": 431,
+      "image_id": 23,
+      "category_id": 8,
+      "segmentation": [],
+      "area": 34946.0,
+      "bbox": [
+        381.0,
+        213.0,
+        173.0,
+        202.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:431",
+      "cls": "tuk_tuk"
+    },
+    "after": {
+      "id": 431,
+      "image_id": 23,
+      "category_id": 8,
+      "segmentation": [],
+      "area": 34946.0,
+      "bbox": [
+        379,
+        209,
+        176,
+        206
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": true,
+        "occluded": true,
+        "rotation": 0.0
+      },
+      "source": "103:431",
+      "cls": "tuk_tuk"
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-19",
+    "action": "attribute",
+    "reason": "R-09: đối chiếu khung ảnh; visible fragment bị cắt ở biên, không lấy mã occlusion thay truncation.",
+    "before": {
+      "truncated": "no"
+    },
+    "after": {
+      "truncated": "yes"
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-20",
+    "action": "attribute",
+    "reason": "R-09: đối chiếu khung ảnh; visible fragment bị cắt ở biên, không lấy mã occlusion thay truncation.",
+    "before": {
+      "truncated": "no"
+    },
+    "after": {
+      "truncated": "yes"
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-21",
+    "action": "attribute",
+    "reason": "R-09: đối chiếu khung ảnh; visible fragment bị cắt ở biên, không lấy mã occlusion thay truncation.",
+    "before": {
+      "truncated": "no"
+    },
+    "after": {
+      "truncated": "yes"
+    }
+  },
+  {
+    "image": "img_014.jpg",
+    "source": "NEW-22",
+    "action": "attribute",
+    "reason": "R-09: đối chiếu khung ảnh; visible fragment bị cắt ở biên, không lấy mã occlusion thay truncation.",
+    "before": {
+      "truncated": "no"
+    },
+    "after": {
+      "truncated": "yes"
+    }
+  },
+  {
+    "image": "img_016.jpg",
+    "source": "NEW-24",
+    "action": "attribute",
+    "reason": "R-09: đối chiếu khung ảnh; visible fragment bị cắt ở biên, không lấy mã occlusion thay truncation.",
+    "before": {
+      "truncated": "no"
+    },
+    "after": {
+      "truncated": "yes"
+    }
+  },
+  {
+    "image": "img_030.jpg",
+    "source": "103:353",
+    "action": "attribute",
+    "reason": "R-09: đối chiếu khung ảnh; visible fragment bị cắt ở biên, không lấy mã occlusion thay truncation.",
+    "before": {
+      "truncated": "yes"
+    },
+    "after": {
+      "truncated": "no"
+    }
+  },
+  {
+    "image": "img_021.jpg",
+    "source": "103:217",
+    "action": "update",
+    "reason": "R-08: phương tiện bạc nằm ngang sau dãy người có khoang kín liền thân, dạng van, không phải car.",
+    "before": {
+      "id": 217,
+      "image_id": 14,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 3443.4399999999987,
+      "bbox": [
+        417.1,
+        219.4,
+        120.4,
+        28.6
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false
+      },
+      "source": "103:217",
+      "cls": "car",
+      "final_id": 252
+    },
+    "after": {
+      "id": 217,
+      "image_id": 14,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 3443.4399999999987,
+      "bbox": [
+        417.1,
+        219.4,
+        120.4,
+        28.6
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "0",
+        "truncated": "no",
+        "can_review": false
+      },
+      "source": "103:217",
+      "cls": "van",
+      "final_id": 252
+    }
+  },
+  {
+    "image": "img_024.jpg",
+    "source": "103:314",
+    "action": "remove",
+    "reason": "QC vòng 1 Q01: box #351 là mảnh bánh/biên thuộc ô tô vàng #359, bỏ instance trùng theo R-02. Giữ snapshot vòng 1.",
+    "before": {
+      "id": 314,
+      "image_id": 16,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 1942.5,
+      "bbox": [
+        671.8,
+        208.5,
+        52.5,
+        37.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false
+      },
+      "source": "103:314",
+      "cls": "car",
+      "final_id": 351
+    },
+    "after": null
+  },
+  {
+    "image": "img_011.jpg",
+    "source": "101:74",
+    "action": "add",
+    "reason": "Q02: người quần đen đứng riêng, h48.61px; bổ sung từ source101:74 sau crop kiểm chéo.",
+    "before": null,
+    "after": {
+      "source": "101:74",
+      "cls": "person",
+      "bbox": [
+        335.65,
+        334.43,
+        15.4,
+        48.61
+      ],
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_025.jpg",
+    "source": "103:334",
+    "action": "update",
+    "reason": "Q03: thêm đầu/thân người áo xanh theo source102:158 và ảnh gốc, không cắt dưới đầu.",
+    "before": {
+      "id": 334,
+      "image_id": 17,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 278.46000000000055,
+      "bbox": [
+        224.4,
+        361.2,
+        11.9,
+        23.4
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      },
+      "source": "103:334",
+      "cls": "person",
+      "final_id": 371
+    },
+    "after": {
+      "id": 334,
+      "image_id": 17,
+      "category_id": 5,
+      "segmentation": [],
+      "area": 278.46000000000055,
+      "bbox": [
+        216,
+        352,
+        26,
+        44
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      },
+      "source": "103:334",
+      "cls": "person",
+      "final_id": 371
+    }
+  },
+  {
+    "image": "img_034.jpg",
+    "source": "102:209",
+    "action": "remove",
+    "reason": "Q04: vùng ignore phủ cá thể h>=20px còn tách được; thay bằng person và motorcycle riêng.",
+    "before": {
+      "id": 209,
+      "image_id": 23,
+      "category_id": 6,
+      "segmentation": [],
+      "area": 2622.0,
+      "bbox": [
+        702.0,
+        239.0,
+        57.0,
+        46.0
+      ],
+      "iscrowd": 0,
+      "attributes": {},
+      "source": "102:209",
+      "cls": "ignore_region",
+      "final_id": 494
+    },
+    "after": null
+  },
+  {
+    "image": "img_034.jpg",
+    "source": "101:200",
+    "action": "add",
+    "reason": "Q04: người cạnh biển qua đường tách được, không đưa ignore.",
+    "before": null,
+    "after": {
+      "source": "101:200",
+      "cls": "person",
+      "bbox": [
+        735.13,
+        241.48,
+        18.43,
+        44.74
+      ],
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_034.jpg",
+    "source": "101:195",
+    "action": "add",
+    "reason": "Q04: mô tô dưới người cạnh biển qua đường, không đưa ignore.",
+    "before": null,
+    "after": {
+      "source": "101:195",
+      "cls": "motorcycle",
+      "bbox": [
+        731.1,
+        255.5,
+        25.34,
+        31.29
+      ],
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  },
+  {
+    "image": "img_034.jpg",
+    "source": "101:203",
+    "action": "add",
+    "reason": "Q04: người ngồi sau mô tô xanh bên trái, tách với người lái.",
+    "before": null,
+    "after": {
+      "source": "101:203",
+      "cls": "person",
+      "bbox": [
+        271.41,
+        234.55,
+        12.29,
+        43.64
+      ],
+      "attributes": {
+        "occluded_level": "2",
+        "truncated": "no",
+        "can_review": false
+      }
+    }
+  }
+]

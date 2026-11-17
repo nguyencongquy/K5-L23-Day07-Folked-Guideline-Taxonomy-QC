@@ -1,0 +1,10 @@
+{
+  "method": "Full-batch source review with semantic snapshot comparison; re-open changed image; delegated review under member103, no independent reviewer claimed",
+  "unchanged_images": 39,
+  "changed_images": [
+    "img_024.jpg"
+  ],
+  "semantic_change": "Removed one duplicate piece of the yellow car; all retained class, bbox and attribute tuples identical",
+  "prior_round": 1,
+  "current_round": 2
+}

@@ -1,0 +1,15 @@
+image,annotator,region,note
+img_004.jpg,102,Tuk-tuk bên phải,R-01/R-09: xe bên trái che một phần hông xe bên phải. Rà lại điểm kết thúc mái và mức che.
+img_008.jpg,102,Tiền cảnh sát góc dưới trái và xe chính diện phía xa,R-10/R-12: góc dưới trái thiếu biên tin cậy. Xe phía xa gần biển sáng chưa đủ dấu hiệu phân biệt xe tải nhỏ với xe chở khách.
+img_013.jpg,102,Hàng xe trong bóng tối phía sau bên trái,R-08/R-10: chỉ thấy một phần đầu và mui xe. Cần xác nhận dạng thân trước khi thêm hoặc đổi lớp.
+img_014.jpg,102,Hai xe và người bị nhòe ở mép trái/phải,R-10: chuyển động làm mất biên đáng tin cậy ở hai mép. Người và xe ở giữa vẫn có cờ review.
+img_019.jpg,102,Cụm khán giả sau rào và xe diễu hành,R-05/R-06/R-11: xác nhận ranh giới giữa cụm ignore và trẻ đứng rõ sát rào. Kiểm lại xe diễu hành là xe thật hay mô hình trên xe nền.
+img_021.jpg,102,Hàng xe máy từ trung cảnh về xa,R-05/R-11: kiểm phần giao giữa dải ignore và các người/xe đã tách ở hàng trước.
+img_022.jpg,102,Mô tô có thùng phụ gắn bên hông,R-08/R-12: tạm giữ motorcycle. Nhờ nhóm thống nhất có tính thùng phụ cố định vào box và khi nào xe ba bánh thuộc tuk_tuk.
+img_025.jpg,102,Dãy ghế sát biển và xe hàng bên phải,R-05/R-08/R-11: ranh giới người ngồi xa lẫn với ghế. Xe hàng tạm giữ motorcycle do có vẻ là xe hai bánh gắn thùng phụ.
+img_031.jpg,102,Xe buýt tuyến 62 ở giữa bên phải,R-01/R-10: rà mép thấp và phần bị xe con che. Bỏ vùng phản sáng dưới xe khỏi box.
+img_033.jpg,102,Cửa và gương trắng bên phải cửa kính,R-06/R-07: cần phân biệt phản chiếu trong kính và phương tiện nhìn trực tiếp trước khi tạo box.
+img_036.jpg,102,Dãy xe máy hai bên xe tải xanh,R-05/R-11: vùng ignore giữ ở cụm xa bên trái. Rà ranh giới của các xe bị che từng phần.
+img_037.jpg,102,Phần đuôi buýt sau pickup bên phải,R-01/R-09: chỉ còn phần đuôi nhìn thấy. Kiểm biên trái và mức che.
+img_040.jpg,102,Xe buýt xa và dãy tuk-tuk sau taxi,R-01/R-06/R-10: rà biên xe buýt cắt mép trên và hai tuk-tuk bị che. Cụm rất sát mép trái còn lẫn hình. Người sau kính tuk-tuk cần xác nhận có nhìn trực tiếp.
+img_005.jpg,103,"Cửa kính bên trái phía sau của van, x≈162–198, y≈104–163 trên ảnh 960×640","R-06/R-10: hình trong kính giống tựa ghế/bóng trong xe; không đủ bằng chứng là người nhìn trực tiếp. Đã bỏ box person chưa chắc, đề nghị nhóm đối chiếu trước khi tạo lại."

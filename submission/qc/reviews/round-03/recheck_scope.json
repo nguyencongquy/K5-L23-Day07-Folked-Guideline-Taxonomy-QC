@@ -1,0 +1,16 @@
+{
+  "method": "Full-batch review via already-read images plus verified semantic snapshot comparison and re-opened all changed images/crops; delegated reviewer103, not independent",
+  "changed_images": [
+    "img_011.jpg",
+    "img_025.jpg",
+    "img_034.jpg"
+  ],
+  "unchanged_images": 37,
+  "prior_round": 2,
+  "current_round": 3,
+  "rework_cases": [
+    "Q02",
+    "Q03",
+    "Q04"
+  ]
+}

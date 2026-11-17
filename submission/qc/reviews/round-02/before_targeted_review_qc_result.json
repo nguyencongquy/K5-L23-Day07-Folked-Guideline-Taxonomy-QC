@@ -1,0 +1,10 @@
+{
+  "round": 2,
+  "reviewer_inputs": {
+    "guideline_gap": 0,
+    "data_problem": 0
+  },
+  "decision": "RELEASE",
+  "labels_sha256": "3f73452a907b64ab924221bdc3c18573637247dcc329b00684045f0517e968f0",
+  "review_sha256": "47d7511e7c9e60d7180d9366b6dcee251e98dbbebe83cc44db53bb4b1c45402b"
+}

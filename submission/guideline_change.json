@@ -1,0 +1,4 @@
+{
+  "kind": "semantic",
+  "summary": "Làm rõ motorcycle bao gồm mô tô truyền thống có thùng phụ cố định, phân biệt auto-rickshaw tuk_tuk; tên/số lớp, thuộc tính và toàn bộ rules giữ nguyên. Taxonomy bàn giao v1.1 lưu riêng. Rà lại cả 40 ảnh; sửa bbox trùng, lớp/biên/thuộc tính và vật bỏ sót theo R-01–R-12; giữ nguyên ba đầu vào và IAA v1.0."
+}

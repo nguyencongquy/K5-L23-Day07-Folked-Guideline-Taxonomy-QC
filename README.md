@@ -1,6 +1,6 @@
 # Day 07 Lab — Guideline, Taxonomy & QC
 
-**Tiến độ hiện tại và toàn bộ việc còn lại:** [STATUS.md](STATUS.md). Chưa hoàn thành IAA/calibration/QC; ghi chú cá nhân được bổ sung theo từng pha.
+**Bộ bàn giao hiện tại:** [Báo cáo QC vòng 3](submission/qc/QC_REPORT.md) · [Nhãn cuối 40 ảnh](submission/qc/labels_calibrated.json) · [Guideline v1.1](submission/guidelines/guideline_v1.1_calibrated.md) · [Trạng thái và giới hạn](STATUS.md). IAA trước sửa được giữ nguyên; có ba vòng QC và đầy đủ dấu vết Rework. Rà theo ủy quyền 103, chưa có xác nhận kiểm ngược của người ngoài nhóm.
 
 **Nhóm 3 thành viên — 101 / 102 / 103:** [Mã thành viên và việc cần làm](TEAM.md) · [Danh sách ảnh từng người](submission/qc/assignments/) · [Bảng chia chung](submission/qc/assignment.csv)
 
