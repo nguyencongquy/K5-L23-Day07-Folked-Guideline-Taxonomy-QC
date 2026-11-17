@@ -28,7 +28,7 @@ Các đường dẫn COCO/ghi chú trong bảng là sản phẩm cần tập h�
 
 Người điều phối gửi cùng một commit tham chiếu cho cả ba. Từng người xác nhận đã đọc bộ chuẩn gồm guideline v1.0, taxonomy tám lớp, cấu hình CVAT và danh sách ảnh theo mã; không tự ghi thay xác nhận của người khác.
 
-Riêng `102`: gói HOLD đã nhận là snapshot sáu lớp, không thay thế repo chung hiện tại. Giữ snapshot cũ; lấy bộ chuẩn mới, bổ sung bus/tuk_tuk và rà ignore trên đúng 27 ảnh được giao. Nếu đã sửa CVAT, chỉ cần export lại. Với Project/Task đã có annotation, giữ các nhãn/ID hiện có; sửa tên lớp hoặc thêm lớp/thuộc tính còn thiếu, không xóa rồi tạo lại cả bộ nhãn.
+Riêng `102`: đã nhận bản JSON mới có tám lớp, đúng 27 ảnh và 13 dòng vấn đề dùng mã 102. Giữ gói HOLD sáu lớp làm lịch sử; không yêu cầu làm lại từ snapshot cũ. Bản mới đã được đưa vào lần IAA hiện tại; sửa sau đây cần bản riêng theo quyết định calibration, không ghi đè đầu vào đã đo.
 
 Bàn giao cá nhân cần `102.json`, ghi chú `102.md` do thành viên xác nhận, và các vấn đề cấp ảnh còn lại với annotator `102`. Guideline cá nhân gốc giữ quyết định ban đầu. Không yêu cầu `102` tự tạo IAA, calibration hay báo cáo QC của cả nhóm trước khi có đủ ba bản; các bước đó thực hiện chung sau khi khóa đầu vào.
 
@@ -47,10 +47,10 @@ Bảng phân công hiện nhận mã `101`, `102`, `103`. Không đặt tên COC
 
 - Guideline cá nhân: đã tập hợp ba bản; lần đổi mã chỉ sửa định danh/đường dẫn, giữ quyết định annotation và lịch sử commit.
 - Mốc xác nhận bản sáu lớp: cả ba đã đồng ý theo xác nhận người điều phối ngày 2026-11-16 tại commit `3e651e6a28645eec131b765bdea956c58c11f516`.
-- Bổ sung tám lớp: theo hướng dẫn coach do `103` báo lại, thêm bus/tuk_tuk và làm rõ ignore. Taxonomy và cấu hình đã cập nhật; chưa ghi nhận xác nhận lại đầy đủ của nhóm cho bản bổ sung.
-- CVAT local của `103`: Project #2 có tám lớp; job #16 đã lưu 471 box trên đủ 26 ảnh, 69 box có can_review. Chưa xác nhận nội dung export của `101`/`102`.
-- Tiến độ gán: người điều phối báo cả ba hoàn thành; chưa kiểm đủ 80 lượt từ ba bản COCO.
-- IAA: chưa đo. Calibration: chưa thực hiện. QC cuối: chưa thực hiện. Chưa có kết luận Release.
+- Bổ sung tám lớp: theo hướng dẫn coach do `103` báo lại, thêm bus/tuk_tuk và làm rõ ignore. Ngày 2026-11-17, người điều phối 103 xác nhận cả ba đã đồng ý bộ tám lớp và commit áp dụng; giữ mốc sáu lớp làm lịch sử.
+- CVAT local của `103`: Project #2 có tám lớp; Task đã chuẩn hóa tên `task-103`; job #16 sau tự kiểm lưu 470 annotation trên 26 ảnh, 56 box có can_review. Bản 471/69 trước tự kiểm được giữ riêng.
+- Tiến độ gán: đã nhận 101.json, 102.json mới và bản 103 sau tự kiểm; validate toàn bộ đủ 80/80 lượt. 102 mới có tám lớp, 13 vấn đề cấp ảnh; 103 thêm một vấn đề. Nhãn và artifact nhóm tập hợp cục bộ, chưa dùng repo public làm gói nộp.
+- IAA cục bộ: 303 cặp, IoU 0.806, cùng lớp 93.1%, chưa đạt; 850 dòng cần xem trên 40 ảnh. Đã sinh overlay. Calibration và QC cuối chưa thực hiện; chưa có Release.
 - Commit chốt bài: điền ở kênh nộp sau khi kiểm tra xong.
 
 Lần chuẩn hóa mã không thay ngưỡng QC, tên class, thuộc tính hoặc tọa độ annotation. Không dùng số lượng file hoặc trạng thái Save/Finish để thay kết quả IAA/QC.

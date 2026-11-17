@@ -4,7 +4,7 @@
 - Phạm vi: 40 ảnh `data/images/img_001.jpg`–`img_040.jpg`; bounding box 2D; CVAT; COCO 1.0.
 - Nguồn: ba bản cá nhân được giữ nguyên trong [individual/](individual/), đối chiếu tại commit 1090cd3d7c917d8c2a079b1a65e617d2e97a0194.
 - Bản chung tổng hợp các phương án trong ba guideline cá nhân để nhóm thảo luận và xác nhận.
-- Trạng thái: bản sáu lớp trước đây đã được cả ba xác nhận tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Ngày 2026-11-16, 103 yêu cầu hoàn thiện lại v1.0 theo hướng dẫn coach được báo lại: thêm bus/tuk-tuk và làm rõ ignore đám đông. Bản hiện tại có tám lớp; cần cả nhóm đồng bộ và ghi mốc khóa lại trước lượt gán theo bản cập nhật. Chưa ghi nhận xác nhận mới của 101/102 hoặc việc đã rà lại nhãn. Lịch sử Git giữ bản trước; đây không phải kết quả calibration v1.1.
+- Trạng thái: mốc sáu lớp cũ được giữ tại commit `3e651e6a28645eec131b765bdea956c58c11f516`. Ngày 2026-11-17, người điều phối 103 xác nhận cả 101, 102 và 103 đã đồng ý cùng bộ tám lớp/commit áp dụng, theo bộ chuẩn đã gửi tại `4d557cf46301855da38780d937ff0d96babc76d0`. Xác nhận này về đặc tả, không thay việc kiểm nhãn. Giữ snapshot sáu lớp và các bản trước/sau tự kiểm; chưa tuyên bố calibration hoặc QC đã hoàn thành.
 - Tài liệu có thẩm quyền về quy trình: [GUIDE.md](../../GUIDE.md), [RULES.md](../../RULES.md), [RUBRIC.md](../../RUBRIC.md).
 
 ## 1. Mục tiêu và phạm vi
@@ -128,7 +128,7 @@ P = bản 101; K = bản 102; Q = bản nghiên cứu của 103. Q và K còn gh
 4. `python scripts/make_cvat_labels.py` → [labels_generated.json](../../cvat/labels_generated.json). Cấu hình này sinh từ taxonomy v1.0, không sửa tay JSON CVAT.
 5. Tạo Project CVAT dùng bộ lớp trên; mỗi người tạo Task riêng, tải đúng `work/<ma>/images/`. 101 27, 102 27, 103 26 ảnh, theo [assignment.csv](../qc/assignment.csv). Giữ frame không có vật; không upload cả 40 ảnh vào mỗi Task gán độc lập.
 
-Xác nhận cũ chỉ áp dụng nội dung tại commit đã ghi, không tự áp dụng cho bổ sung tám lớp. Cả nhóm cần xác nhận bản cập nhật và ghi commit khóa lại. Nhãn theo bản sáu lớp giữ riêng; trước khi đo IAA theo bản cập nhật, mỗi thành viên rà lại toàn bộ ảnh được giao, thêm vật thuộc lớp mới và áp dụng cùng quy tắc ignore, rồi xuất lại COCO. Không trộn các bản khác phạm vi trong cùng lượt IAA. Nếu nhóm đã khóa/nộp xong lượt độc lập và chuyển Pha 4–5, giữ lượt đó làm mốc và xử lý thay đổi theo calibration v1.1 trong GUIDE.md, không viết lại dữ liệu ban đầu.
+Đã ghi nhận xác nhận cùng bộ tám lớp của cả ba qua người điều phối ngày 2026-11-17. Nhãn theo bản sáu lớp giữ riêng. Mỗi đầu vào COCO hiện hành được giữ checksum trước khi so sánh; việc file có thiếu một class hoặc bỏ sót vật vẫn phải được phát hiện khi đọc ảnh/IAA, không tự suy ra quy tắc nhóm đã khác. Khi sửa sau IAA, giữ bản độc lập và ghi quyết định calibration theo GUIDE.md; không viết lại lịch sử hoặc thay âm thầm đầu vào.
 
 ### 5.2. Tự kiểm và xuất nhãn
 

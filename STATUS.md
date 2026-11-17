@@ -1,6 +1,6 @@
 # Day 07 — Checklist theo pha
 
-Cập nhật 2026-11-17. **Đang nhận/chốt đầu vào Pha 3; chưa hoàn thành IAA, calibration hoặc QC cuối.** Đây là tiến độ, không phải kết quả kiểm chất lượng.
+Cập nhật 2026-11-17. **Đã tập hợp đủ đầu vào và chạy IAA cục bộ; đang chuẩn bị thảo luận calibration. Chưa có nhãn cuối hoặc QC cuối.** Đây là tiến độ, không phải kết quả kiểm chất lượng.
 
 ## Ghi chú cá nhân: không điền trước kết quả
 
@@ -13,11 +13,12 @@ Cập nhật 2026-11-17. **Đang nhận/chốt đầu vào Pha 3; chưa hoàn th
 ## Mốc hiện có trên main
 
 - Có ba file guideline cá nhân; việc có file chưa thay cho kiểm nội dung và bằng chứng cá nhân.
-- Guideline chung đúng tên, taxonomy tám lớp và cấu hình CVAT đã đồng bộ. Cần xác nhận cùng mốc áp dụng của cả ba thành viên; không lấy xác nhận bản cũ thay cho bổ sung mới.
+- Guideline chung đúng tên, taxonomy tám lớp và cấu hình CVAT đã đồng bộ. Đã nhận xác nhận cả ba cùng bộ tám lớp và commit áp dụng qua người điều phối ngày 2026-11-17; mốc cũ được giữ riêng.
 - Có bảng 40 ảnh × 2 người = 80 lượt, chia 27/27/26 cho mã 101/102/103. Không chạy chia lại.
 - Kiểm thử kỹ thuật: 23/23 đạt. Đây là kiểm script bằng fixture, không chứng nhận nhãn đúng hay lab đã hoàn thành.
-- Chưa tập hợp ba COCO đã khóa vào `submission/labels/`. Không ghi đè nhãn gốc khi sửa.
-- Ghi chú 103 có phần trước IAA; chưa tập hợp ghi chú 101/102 trên main.
+- Đã tập hợp ba COCO tại workspace, validate đủ 80/80 lượt và 14 vấn đề cấp ảnh. Đã giữ snapshot/checksum, sinh IAA và 40 overlay; không ghi đè đầu vào khi sửa. Các file nhãn và kết quả chi tiết được giữ trong gói riêng, chưa xuất bản lên repo public.
+- Ghi chú 103 đã có tự kiểm và phần phân tích IAA; calibration/QC chờ kết quả nhóm. Chưa tập hợp ghi chú 101/102 trên main.
+- IAA hiện tại: 303 cặp ghép, IoU trung bình 0.806, đồng thuận lớp 93.1%, chưa đạt. Có 850 dòng cần xem, không phải 850 lỗi duy nhất.
 
 ## Việc còn lại, theo đúng thứ tự
 
@@ -39,7 +40,7 @@ Cập nhật 2026-11-17. **Đang nhận/chốt đầu vào Pha 3; chưa hoàn th
 | Bàn giao | `check_submission.py --round <vòng cuối>` 0 lỗi; người ngoài nhóm lần ngược một ca | 103 tổ chức |
 | Nộp | Một repo riêng tư có quyền coach hoặc ZIP theo kênh được công bố; đúng tên gói, giữ ATTRIBUTION, không kèm work/ hoặc thông tin đăng nhập | Người đại diện nhóm |
 
-Chưa có các artifact Pha 4–6 trên main tại lần cập nhật này. Chưa đến bước tạo không có nghĩa phải điền sẵn; khi đến pha tương ứng phải thực hiện và lưu bằng chứng thật.
+Artifact Pha 4 đã sinh cục bộ và đi kèm gói review riêng. Trên main public chưa có nhãn/artifact chi tiết của nhóm. Pha 5–6 chưa có kết quả; không điền sẵn quyết định hoặc số liệu chưa làm.
 
 ## Quy tắc tránh nhầm
 

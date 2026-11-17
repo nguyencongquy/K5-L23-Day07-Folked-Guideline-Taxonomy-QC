@@ -2,7 +2,7 @@
 
 - Phiên bản v1.0, hoàn thiện ngày 2026-11-16 sau khi nhóm chốt quy tắc chung.
 - Đã xem đủ 40 ảnh. Lượt gán độc lập được phân công 26 ảnh.
-- Áp dụng [guideline nhóm v1.0](../guideline_v1.0_agreed.md) và [taxonomy](../../taxonomy.json).
+- File này giữ phạm vi/đề xuất cá nhân sáu lớp để đối chiếu, không phải hướng dẫn gán hiện hành sau bổ sung lớp. Bản nghiên cứu ban đầu còn trong lịch sử tại commit `dc40aff`; bản hiện tại được biên tập sau họp. Lượt gán hiện hành theo [guideline nhóm v1.0](../guideline_v1.0_agreed.md) và [taxonomy tám lớp](../../taxonomy.json).
 
 ## 1. Mục tiêu
 
