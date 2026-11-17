@@ -50,6 +50,7 @@ Bảng phân công hiện nhận mã `101`, `102`, `103`. Không đặt tên COC
 - Bổ sung tám lớp: theo hướng dẫn coach do `103` báo lại, thêm bus/tuk_tuk và làm rõ ignore. Ngày 2026-11-17, người điều phối 103 xác nhận cả ba đã đồng ý bộ tám lớp và commit áp dụng; giữ mốc sáu lớp làm lịch sử.
 - CVAT local của `103`: Project #2 có tám lớp; Task đã chuẩn hóa tên `task-103`; job #16 sau tự kiểm lưu 470 annotation trên 26 ảnh, 56 box có can_review. Bản 471/69 trước tự kiểm được giữ riêng.
 - Tiến độ gán: đã nhận 101.json, 102.json mới và bản 103 sau tự kiểm; validate toàn bộ đủ 80/80 lượt. 102 mới có tám lớp, 13 vấn đề cấp ảnh; 103 thêm một vấn đề. Nhãn và artifact nhóm tập hợp cục bộ, chưa dùng repo public làm gói nộp.
+- Ghi chú cá nhân: ngày 2026-11-17 đã nhận thêm 101.md và 102.md; người điều phối xác nhận 102 đã đọc/chốt nội dung. Đủ ba bản ghi chú ở workspace, giữ bản gốc. Đã bổ sung thống kê kiểm được cho 101, không điền quyết định calibration/QC chưa thực hiện.
 - IAA cục bộ: 303 cặp, IoU 0.806, cùng lớp 93.1%, chưa đạt; 850 dòng cần xem trên 40 ảnh. Đã sinh overlay. Calibration và QC cuối chưa thực hiện; chưa có Release.
 - Commit chốt bài: điền ở kênh nộp sau khi kiểm tra xong.
 

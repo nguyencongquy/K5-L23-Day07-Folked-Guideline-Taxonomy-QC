@@ -17,7 +17,7 @@ Cập nhật 2026-11-17. **Đã tập hợp đủ đầu vào và chạy IAA c�
 - Có bảng 40 ảnh × 2 người = 80 lượt, chia 27/27/26 cho mã 101/102/103. Không chạy chia lại.
 - Kiểm thử kỹ thuật: 23/23 đạt. Đây là kiểm script bằng fixture, không chứng nhận nhãn đúng hay lab đã hoàn thành.
 - Đã tập hợp ba COCO tại workspace, validate đủ 80/80 lượt và 14 vấn đề cấp ảnh. Đã giữ snapshot/checksum, sinh IAA và 40 overlay; không ghi đè đầu vào khi sửa. Các file nhãn và kết quả chi tiết được giữ trong gói riêng, chưa xuất bản lên repo public.
-- Ghi chú 103 đã có tự kiểm và phần phân tích IAA; calibration/QC chờ kết quả nhóm. Chưa tập hợp ghi chú 101/102 trên main.
+- Đã nhận và tập hợp cục bộ cả ba ghi chú 101/102/103. Ghi chú 101 được bổ sung thống kê từ COCO có ghi rõ nguồn; 102 đã được thành viên đọc/xác nhận qua người điều phối. Giữ nguyên bản nhận và checksum. Ghi chú 103 có tự kiểm và phân tích IAA; phần kết quả calibration/QC của cả ba chờ công việc nhóm thực tế. Hai ghi chú mới đi kèm gói review riêng, chưa xuất bản nội dung lên main public.
 - IAA hiện tại: 303 cặp ghép, IoU trung bình 0.806, đồng thuận lớp 93.1%, chưa đạt. Có 850 dòng cần xem, không phải 850 lỗi duy nhất.
 
 ## Việc còn lại, theo đúng thứ tự
